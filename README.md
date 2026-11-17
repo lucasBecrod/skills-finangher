@@ -7,6 +7,7 @@ gratis: úsalas, cópialas y mejóralas.
 | Skill | Qué hace |
 |---|---|
 | [`rastrear-envio`](rastrear-envio/) | Le das a Claude el número de orden y el código de tu ticket de Shalom y te responde en qué estado está el envío. |
+| [`registrar-venta`](registrar-venta/) | Le pides a Claude una boleta o factura y la arma en tu Finangher, te muestra el resumen, la emite con tu «sí» y le envía el PDF a tu cliente. |
 
 ## rastrear-envio
 
@@ -66,6 +67,65 @@ node ~/.claude/skills/rastrear-envio/scripts/rastrear-shalom.js 100000000 AB12
 
 Este proyecto no es de Shalom ni está afiliado a Shalom. Usa su página pública
 de rastreo igual que lo haría una persona.
+
+## registrar-venta
+
+Le pides a Claude una boleta o una factura como se lo pedirías a una persona, y
+Claude la arma en tu Finangher. Antes de emitir te muestra un resumen fijo y
+espera tu «sí».
+
+- **Revisa que el pedido esté completo.** Si falta el producto, el cliente, el
+  comprobante o la forma de pago, te lo pregunta en un solo mensaje.
+- **No decide tus impuestos.** Usa lo que tu negocio ya tiene configurado en
+  Finangher y verifica la línea de impuestos antes de vender.
+- **Solo emite con tu confirmación**, y pulsa «Vender» una sola vez.
+- **No pide ni escribe contraseñas.** Tú inicias sesión; Claude opera tu sesión.
+- Al terminar te ofrece enviarle el PDF a tu cliente por WhatsApp.
+- No emite notas de crédito ni anula comprobantes.
+
+### Qué necesitas
+
+- Una cuenta en [Finangher](https://finangher.com) con tu negocio configurado:
+  productos en el catálogo y, si vas a emitir comprobantes, la facturación
+  electrónica activada.
+- Un Claude que pueda operar tu navegador con tu sesión iniciada (por ejemplo,
+  Claude con su extensión para Chrome, o Claude Code con una herramienta de
+  navegador).
+
+### Instalar
+
+Abre Claude Code y pídeselo:
+
+> Instala la skill registrar-venta de https://github.com/lucasBecrod/skills-finangher
+
+A mano:
+
+```bash
+git clone https://github.com/lucasBecrod/skills-finangher.git
+mkdir -p ~/.claude/skills
+cp -r skills-finangher/registrar-venta ~/.claude/skills/
+```
+
+No tiene dependencias que instalar: son instrucciones para Claude.
+
+### Usar
+
+> Emite una boleta de 2 polos talla M al DNI 40000001, pagó por Yape
+
+La primera vez Claude lee de Finangher cómo está configurado tu negocio y te
+pide confirmar una sola cosa: si tus ventas llevan IGV o están exoneradas.
+
+### Límites que debes conocer
+
+- Probada en computadora, en `finangher.com`, emitiendo boletas al contado. Lo
+  que todavía no está probado (crédito, adelantos, operaciones gratuitas o de
+  exportación, moneda distinta de soles) está listado en la propia skill, y en
+  esos casos Claude siempre te pide confirmación.
+- La instalación desde cero en otra computadora no está probada.
+- Un comprobante emitido no se borra: se corrige con otro comprobante. Por eso
+  la skill pregunta antes de emitir.
+- Si Finangher cambia una pantalla, Claude lee lo que ve y se detiene ante la
+  duda; no adivina.
 
 ## Licencia
 

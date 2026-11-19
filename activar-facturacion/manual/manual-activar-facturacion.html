@@ -2,200 +2,85 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Activa tu facturación electrónica en Finangher</title>
+<title>Activa tu facturación en Finangher</title>
 <style>
-  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
-  :root { --ink:#1d1d1f; --sec:#5b5b62; --line:#e3e3e8; --soft:#f5f5f7; --acc:#0a7d4f; --warn:#9a5b00; }
+  @page { size: A4; margin: 14mm; }
+  :root { --ink:#1d1d1f; --sec:#6e6e73; --soft:#f5f5f7; --line:#d2d2d7; --acc:#0a7d4f; }
   * { box-sizing:border-box; }
-  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color:var(--ink); font-size:10.5pt; line-height:1.5; margin:0; }
-  h1 { font-size:24pt; line-height:1.15; margin:0 0 6px; letter-spacing:-0.01em; }
-  h2 { font-size:14pt; margin:22px 0 6px; padding-top:10px; border-top:1px solid var(--line); }
-  h2, h3 { break-after:avoid; } .box, table, .steps > li { break-inside:avoid; }
-  h3 { font-size:11.5pt; margin:14px 0 4px; }
-  p { margin:4px 0 8px; }
-  .sub { color:var(--sec); font-size:12pt; margin-bottom:14px; }
-  .meta { color:var(--sec); font-size:9pt; }
-  ol, ul { margin:4px 0 10px 18px; padding:0; }
-  li { margin:3px 0; }
-  table { width:100%; border-collapse:collapse; margin:6px 0 12px; font-size:9.8pt; }
-  th, td { text-align:left; vertical-align:top; padding:6px 8px; border-bottom:1px solid var(--line); }
-  th { background:var(--soft); font-weight:600; }
-  .box { background:var(--soft); border-radius:8px; padding:10px 12px; margin:10px 0; }
-  .ok { border-left:4px solid var(--acc); }
-  .warn { border-left:4px solid var(--warn); }
-  .ruta { font-weight:600; }
-  code, .k { font-family: "SF Mono", Menlo, monospace; font-size:9.5pt; background:var(--soft); padding:1px 4px; border-radius:4px; }
-  .steps { counter-reset: s; list-style:none; margin-left:0; }
-  .steps > li { counter-increment:s; position:relative; padding-left:30px; margin:8px 0; }
-  .steps > li::before { content:counter(s); position:absolute; left:0; top:0; width:20px; height:20px; border-radius:50%; background:var(--ink); color:#fff; font-size:9pt; font-weight:600; display:flex; align-items:center; justify-content:center; }
-  .cols { display:flex; gap:12px; }
-  .cols > div { flex:1; }
-  .check li { list-style:"☐  "; }
-  .pb { page-break-before:always; }
-  .foot { margin-top:18px; color:var(--sec); font-size:9pt; }
+  body { font-family:-apple-system,"Helvetica Neue",Arial,sans-serif; color:var(--ink); margin:0; }
+  .pag { page-break-after:always; min-height:262mm; display:flex; flex-direction:column; gap:10px; }
+  .pag:last-child { page-break-after:auto; }
+  .portada { justify-content:center; text-align:center; gap:18px; }
+  .portada h1 { font-size:34pt; line-height:1.1; margin:0; }
+  .portada p { font-size:15pt; color:var(--sec); margin:0; }
+  .caminos { display:flex; gap:14px; margin-top:20px; }
+  .caminos div { flex:1; background:var(--soft); border-radius:14px; padding:18px; font-size:13pt; }
+  .caminos b { display:block; font-size:16pt; margin-bottom:6px; }
+  .tramo { font-size:10pt; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--sec); }
+  .paso { display:flex; align-items:baseline; gap:10px; }
+  .num { flex:none; width:34px; height:34px; border-radius:50%; background:var(--ink); color:#fff; font-size:15pt; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .txt { font-size:16pt; font-weight:600; line-height:1.25; }
+  .cap { flex:1; display:flex; align-items:center; justify-content:center; border-radius:12px; overflow:hidden; background:var(--soft); }
+  .cap img { max-width:100%; max-height:225mm; object-fit:contain; display:block; }
+  .cap.falta { border:2px dashed var(--line); color:var(--sec); font-size:12pt; text-align:center; padding:20px; }
+  .final { justify-content:center; text-align:center; }
+  .final h2 { font-size:28pt; margin:0; color:var(--acc); }
+  .final p { font-size:14pt; color:var(--sec); }
 </style>
 </head>
 <body>
 
-<h1>Activa tu facturación electrónica en Finangher</h1>
-<p class="sub">De cero a tu primera boleta aceptada por SUNAT.</p>
-<p class="meta">Manual para el dueño del negocio · Versión 1 · noviembre de 2026</p>
-
-<div class="box ok">
-  <p><strong>Cuándo terminaste:</strong> cuando SUNAT acepta tu primera boleta. Desde ese momento, cada venta con boleta o factura se emite sola al pulsar «Vender».</p>
-</div>
-
-<h2>Lo que vas a necesitar</h2>
-<ul class="check">
-  <li>Tu <strong>RUC</strong> y tu <strong>Clave SOL principal</strong> (la que usas para entrar a SUNAT).</li>
-  <li>Tu cuenta de <strong>Finangher</strong> abierta en la computadora, con tu negocio.</li>
-  <li>Saber <strong>cómo declaras tus impuestos</strong>: Nuevo RUS, o Régimen Especial, MYPE o General. Si no lo sabes, pregúntale a tu contador.</li>
-  <li>Si ya tienes un <strong>certificado digital</strong>: el archivo (<code>.pfx</code> o <code>.p12</code>) y su contraseña.</li>
-  <li>Tu <strong>dirección fiscal</strong> completa en Finangher (sale impresa en cada comprobante).</li>
-</ul>
-<p>Tus claves las escribes tú, directamente en SUNAT o en Finangher. Nadie de Finangher ni ninguna IA necesita conocerlas.</p>
-
-<h2>Paso 1 · Elige cómo vas a firmar</h2>
-<p>SUNAT pide una firma digital en cada boleta y factura. Tienes dos maneras de tenerla:</p>
-<table>
-  <tr><th></th><th>Con tu certificado</th><th>Con un PSE</th></tr>
-  <tr><td><strong>Quién firma</strong></td><td>Tu negocio, con su certificado digital</td><td>Un proveedor autorizado por SUNAT (PSE), en tu nombre</td></tr>
-  <tr><td><strong>Qué haces en SUNAT</strong></td><td>Crear un usuario secundario y obtener o registrar tu certificado</td><td>Autorizar al PSE con su RUC</td></tr>
-  <tr><td><strong>Costo del certificado</strong></td><td>Gratis si SUNAT te da el suyo; si no, se compra</td><td>No necesitas certificado</td></tr>
-  <tr><td><strong>Vencimiento</strong></td><td>El certificado vence y se renueva</td><td>No vence mientras sigas autorizándolo</td></tr>
-</table>
-
-<h3>¿Cuál te conviene?</h3>
-<table>
-  <tr><th>Tu caso</th><th>Te recomendamos</th></tr>
-  <tr><td>Ya tienes un certificado vigente</td><td>Usar <strong>tu certificado</strong></td></tr>
-  <tr><td>Régimen Especial, MYPE o General, sin certificado</td><td>Pedir el <strong>certificado gratuito de SUNAT</strong>. Si SUNAT no te lo da, usar el <strong>PSE</strong></td></tr>
-  <tr><td>Nuevo RUS</td><td>Usar el <strong>PSE</strong></td></tr>
-  <tr><td>Eres principal contribuyente (PRICO), agente de retención o de percepción</td><td>SUNAT te pide emitir por OSE. Escríbenos por WhatsApp antes de seguir</td></tr>
-</table>
-<p>Puedes cambiar de camino después, desde la misma pantalla. Tus series y tu numeración no cambian.</p>
-
-<h2>Camino A · Con tu certificado</h2>
-
-<h3>A1. Crea tu usuario SOL secundario (en SUNAT)</h3>
-<p>Es un usuario que creas para que el sistema trabaje con SUNAT sin conocer tu clave principal.</p>
-<ol class="steps">
-  <li>Entra a <strong>SUNAT Operaciones en Línea</strong> con tu RUC y Clave SOL principal.</li>
-  <li>Ve a <span class="ruta">Bienvenido › Administración de usuarios secundarios › Crear usuario</span>.</li>
-  <li>Elige un nombre de usuario (por ejemplo <code>FACTURAS</code>) y una clave. Anótalos en un lugar seguro.</li>
-  <li>En <span class="ruta">Modificar Programas</span>, dentro de <em>Comprobantes de pago</em>, marca las opciones de envío y consulta de comprobantes electrónicos, el registro de certificados digitales y <em>Altas/Bajas de PSE</em> (la lista completa está en la última página). Pulsa <strong>Siguiente</strong> para guardar.</li>
-</ol>
-
-<h3>A2. Consigue tu certificado</h3>
-<div class="cols">
-  <div class="box">
-    <p><strong>Gratis, de SUNAT</strong></p>
-    <ol>
-      <li>En SOL, busca <strong>Certificado Digital Tributario</strong> y solicítalo.</li>
-      <li>SUNAT te dice si tu RUC puede obtenerlo. Los requisitos están en <code>cpe.sunat.gob.pe/certificado-digital</code>.</li>
-      <li>Crea la contraseña del archivo y guárdala.</li>
-      <li>Descarga el archivo a tu computadora.</li>
-    </ol>
+<section class="pag portada">
+  <h1>Activa tu facturación<br>en Finangher</h1>
+  <p>Hasta tu primera boleta aceptada por SUNAT</p>
+  <div class="caminos">
+    <div><b>A · Tengo certificado</b>o lo pido gratis a SUNAT</div>
+    <div><b>B · No tengo certificado</b>firma un PSE por mí</div>
   </div>
-  <div class="box">
-    <p><strong>Comprado</strong></p>
-    <ol>
-      <li>Cómpralo a una entidad acreditada.</li>
-      <li>Descárgalo <strong>junto con su contraseña</strong>: muchas veces la descarga es de una sola vez.</li>
-      <li>En SOL, entra a <span class="ruta">Registro y Mantenimiento de Correo y Certificados Digitales</span> y sube el archivo <code>.cer</code>.</li>
-    </ol>
-  </div>
-</div>
+  <p style="font-size:12pt">Tus claves las escribes tú. Nadie más las necesita.</p>
+</section>
 
-<h3>A3. Marca la casilla del SEE (en SUNAT)</h3>
-<p>En <span class="ruta">Registro y Mantenimiento de Correo y Certificados Digitales</span>, marca <strong>«Deseo emitir a través del SEE - Del Contribuyente»</strong> y guarda.</p>
-<div class="box warn"><p><strong>Rige desde mañana.</strong> SUNAT te habilita como emisor desde el día siguiente. Si emites hoy, tu primera boleta puede volver con el código <strong>0111</strong>. No borres la venta: se reintenta mañana con el mismo número.</p></div>
+<div id="pasos"></div>
 
-<h3>A4. Configura Finangher</h3>
-<ol class="steps">
-  <li>Abre <span class="ruta">Configuración › Facturación</span>.</li>
-  <li><strong>Régimen tributario:</strong> elige cómo declaras tus impuestos.</li>
-  <li><strong>Usuario SOL secundario:</strong> escribe el usuario y la clave del paso A1.</li>
-  <li><strong>Firma de tus comprobantes › Tengo mi certificado digital:</strong> elige el archivo, escribe su contraseña y pulsa <strong>Guardar certificado</strong>.</li>
-  <li><strong>Tipo de afectación del IGV:</strong> marca la que usa tu negocio (si tienes dudas, tu contador lo sabe).</li>
-  <li><strong>Comprobantes electrónicos:</strong> revisa las series que te proponemos. Si ya emitías con otro sistema, no repitas una serie que ya usaste.</li>
-</ol>
-<p>Sigue en «<a href="#listo">Comprueba que está listo</a>».</p>
+<section class="pag final">
+  <h2>¡Listo!</h2>
+  <p>Cada venta con boleta o factura se emite sola al pulsar «Vender».</p>
+  <p style="font-size:11pt">¿Te ayudamos? Escríbenos por WhatsApp desde finangher.com</p>
+</section>
 
-<h2>Camino B · Con un PSE (sin certificado)</h2>
-
-<h3>B1. Empieza en Finangher</h3>
-<ol class="steps">
-  <li>Abre <span class="ruta">Configuración › Facturación</span> y elige tu <strong>Régimen tributario</strong>.</li>
-  <li>En <strong>Firma de tus comprobantes</strong>, elige <strong>No tengo certificado</strong>.</li>
-  <li>Verás <strong>«Habilita este RUC en tu Clave SOL»</strong> con el RUC del PSE y un botón <strong>Copiar</strong>.</li>
-</ol>
-<div class="box"><p>El PSE que usa Finangher es <strong>INTAI S.A.C. (Facturita), RUC 20602186793</strong>. Finangher no firma tus comprobantes: los firma este PSE en tu nombre.</p></div>
-
-<h3>B2. Autoriza al PSE (en SUNAT)</h3>
-<ol class="steps">
-  <li>Entra a SUNAT Operaciones en Línea con tu Clave SOL principal.</li>
-  <li>Ve a <span class="ruta">Comprobantes de pago › Factura Electrónica › Comunicación de Tercerización con PSE › Altas/Bajas de PSE</span>.</li>
-  <li>Pulsa <strong>Alta Servicio</strong>, pega el RUC del PSE y elige la <strong>fecha de inicio</strong> más próxima que SUNAT permita (es posterior a hoy).</li>
-  <li>Guarda y quédate con una captura de la constancia.</li>
-</ol>
-
-<h3>B3. Termina en Finangher</h3>
-<ol class="steps">
-  <li>Vuelve a la hoja de la firma y pulsa <strong>Ya lo habilité en SUNAT</strong>.</li>
-  <li>Te pedirá el <strong>Código para facturar</strong>. Pídelo con el enlace <strong>«¿No tienes el código? Pídelo por WhatsApp»</strong>: lo generamos al registrar tu RUC en el PSE.</li>
-  <li>Pega el código y pulsa <strong>Guardar código</strong>. Debe decir <strong>«Listo para emitir»</strong>.</li>
-  <li>Revisa <strong>Tipo de afectación del IGV</strong> y <strong>Comprobantes electrónicos</strong> como en el camino A.</li>
-</ol>
-<p>Recomendado: crea también tu usuario SOL secundario (paso A1) y guárdalo en Finangher. Así recibes tus compras de SUNAT automáticamente.</p>
-
-<h2 id="listo">Comprueba que está listo</h2>
-<p>En <span class="ruta">Configuración › Facturación</span> debes ver:</p>
-<ul class="check">
-  <li>Firma: <strong>«Con tu certificado»</strong> o <strong>«Con el PSE»</strong>.</li>
-  <li><strong>«Listo para emitir comprobantes»</strong>.</li>
-  <li>La etiqueta <strong>«Emisión real»</strong>.</li>
-  <li>El interruptor <strong>Envío de comprobantes a SUNAT</strong> activado.</li>
-</ul>
-<p>Si algo falta, Finangher te dice qué (por ejemplo «Falta tu dirección fiscal»).</p>
-
-<h2>Tu primera boleta</h2>
-<p>La primera boleta es real: queda en SUNAT y no se borra. Por eso hazla con tu próxima venta de verdad.</p>
-<ol class="steps">
-  <li>Pulsa <strong>Vender</strong>, agrega el producto, elige el cliente y marca <strong>Boleta</strong>.</li>
-  <li>Elige cómo te pagó y pulsa <strong>Vender</strong> una sola vez.</li>
-  <li>En <strong>Operaciones</strong>, mira el estado del comprobante.</li>
-</ol>
-<table>
-  <tr><th>Si ves</th><th>Qué significa</th></tr>
-  <tr><td><strong>Aceptado</strong></td><td>Listo. Ya facturas electrónicamente.</td></tr>
-  <tr><td><strong>Esperando respuesta de SUNAT</strong></td><td>SUNAT no respondió todavía. Finangher reintenta solo; no vuelvas a vender.</td></tr>
-  <tr><td><strong>0111 · No tiene el perfil</strong></td><td>Falta la casilla del SEE (paso A3) o la marcaste hoy. Se reintenta mañana.</td></tr>
-  <tr><td><strong>El Emisor no se encuentra registrado</strong></td><td>Camino PSE: tu RUC aún no está registrado en el PSE. Escríbenos por WhatsApp.</td></tr>
-</table>
-
-<h2>Si quieres que Claude te acompañe</h2>
-<p>Finangher publica una skill gratuita, <strong>activar-facturacion</strong>, para que Claude te guíe paso a paso con este mismo recorrido. Claude te dicta cada paso en SUNAT, deja lista la configuración en Finangher y emite contigo tu primera boleta cuando le dices «sí». Nunca te pide tus claves.</p>
-<p class="meta">Instálala pidiéndole a Claude: «Instala la skill activar-facturacion de https://github.com/lucasBecrod/skills-finangher».</p>
-
-<h2 class="pb">Anexo · Opciones del usuario SOL secundario</h2>
-<p>En <span class="ruta">Modificar Programas › Comprobantes de pago</span>, marca:</p>
-<table>
-  <tr><th>Rama</th><th>Opción</th></tr>
-  <tr><td>SEE - Del Contribuyente y Envío de Documentos › Servicio de Envío de Documentos Electrónicos</td><td>Servicio de Envío de Documentos Electrónicos por Servicio Web</td></tr>
-  <tr><td>SEE - Del Contribuyente › Certificado Digital</td><td>Registro y Mantenimiento de Correo y Certificados Digitales</td></tr>
-  <tr><td>SEE - Del Contribuyente › Consultar Envíos de CPE</td><td>Consultar Envío de Comprobante de Pago Electrónicos · Consultar Envío de Comunicación de Bajas · Consultar Envío de Resumen de Boletas de Venta Electrónica · Consultar Disponibilidad del Servidor</td></tr>
-  <tr><td>Factura Electrónica › Certificado Digital</td><td>Registro y Mantenimiento de Correo y Certificados Digitales</td></tr>
-  <tr><td>Factura Electrónica › Correo Electrónico</td><td>Actualizar Correo Electrónico</td></tr>
-  <tr><td>Factura Electrónica › Consultar Factura, Boletas y Notas</td><td>Consultar Factura, Boletas y Notas</td></tr>
-  <tr><td>Factura Electrónica › Comunicación de Tercerización con PSE</td><td>Altas/Bajas de PSE</td></tr>
-  <tr><td>Comprobante de Retención Electrónico</td><td>Consulta de Comprobante de Retención</td></tr>
-  <tr><td>Comprobante de Percepción Electrónico</td><td>Consulta de Comprobante de Percepción</td></tr>
-  <tr><td>Guía de Remisión</td><td>Consulta de Guía de Remisión Electrónica Remitente</td></tr>
-</table>
-<p>Haz clic en cada rama del árbol de la izquierda, marca sus opciones a la derecha y pasa a la siguiente: SUNAT conserva lo que marcaste. Al final pulsa <strong>Siguiente</strong>. No marques nada de Aduaneros ni Bienes Fiscalizados.</p>
-
-<p class="foot">¿Prefieres que lo hagamos contigo? La puesta en marcha de Finangher incluye dejar tu facturación activa y tu catálogo cargado. Escríbenos por WhatsApp desde finangher.com.</p>
-
+<script>
+// Un paso = una captura + una línea. La captura vive en capturas/<archivo>.
+// Si aún no existe, la página muestra qué captura falta.
+const PASOS = [
+  ["Ambos caminos", "Abre Configuración › Facturación", "01-finangher-configuracion.png"],
+  ["Ambos caminos", "Elige cómo declaras tus impuestos", "02-finangher-regimen.png"],
+  ["A · Certificado — en SUNAT", "Entra a SUNAT con tu Clave SOL", "03-sol-ingreso.png"],
+  ["A · Certificado — en SUNAT", "Crea tu usuario secundario", "04-sol-crear-secundario.png"],
+  ["A · Certificado — en SUNAT", "Marca estas opciones y pulsa Siguiente", "05-sol-opciones-secundario.png"],
+  ["A · Certificado — en SUNAT", "Pide tu certificado gratuito", "06-sol-pedir-cdt.png"],
+  ["A · Certificado — en SUNAT", "Marca «Deseo emitir a través del SEE - Del Contribuyente»", "07-sol-casilla-see.png"],
+  ["A · Certificado — en Finangher", "Pega tu usuario secundario", "08-finangher-usuario-sol.png"],
+  ["A · Certificado — en Finangher", "Sube tu certificado y su contraseña", "09-finangher-subir-certificado.png"],
+  ["B · PSE — en Finangher", "Elige «No tengo certificado» y copia el RUC", "10-finangher-no-tengo-certificado.png"],
+  ["B · PSE — en SUNAT", "Ve a Altas/Bajas de PSE", "11-sol-altas-bajas-pse.png"],
+  ["B · PSE — en SUNAT", "Pega el RUC, elige la fecha y guarda", "12-sol-alta-servicio.png"],
+  ["B · PSE — en Finangher", "Pulsa «Ya lo habilité en SUNAT»", "13-finangher-ya-lo-habilite.png"],
+  ["B · PSE — en Finangher", "Pega el código que te enviamos", "14-finangher-codigo-para-facturar.png"],
+  ["Ambos caminos", "Revisa que diga «Listo para emitir»", "15-finangher-listo-para-emitir.png"],
+  ["Ambos caminos", "Haz tu primera venta con boleta", "16-finangher-primera-boleta.png"],
+  ["Ambos caminos", "Mira que diga «Aceptado»", "17-finangher-aceptado.png"],
+];
+const cont = document.getElementById("pasos");
+PASOS.forEach(([tramo, texto, archivo], i) => {
+  const s = document.createElement("section");
+  s.className = "pag";
+  s.innerHTML = `<div class="tramo">${tramo}</div>
+    <div class="paso"><div class="num">${i + 1}</div><div class="txt">${texto}</div></div>
+    <div class="cap"><img src="capturas/${archivo}" alt=""></div>`;
+  const img = s.querySelector("img");
+  img.onerror = () => { const c = img.parentElement; c.classList.add("falta"); c.textContent = "Falta la captura: " + archivo; };
+  cont.appendChild(s);
+});
+</script>
 </body>
 </html>

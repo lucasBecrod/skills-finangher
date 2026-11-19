@@ -123,8 +123,18 @@ listo; **los campos de clave los escribe el dueño**.
 En el camino PSE el tramo 2 (API) no es necesario para emitir, pero se
 recomienda: Finangher lo usa para traer las compras de SUNAT y emitir guías.
 
-Después de los tres tramos, en Finangher: **Tipo de afectación del IGV** (si el
-régimen lo pide) y **Comprobantes electrónicos** (revisar las series).
+Después de los tres tramos, el dueño ya puede cerrar SUNAT. **El paso 4 es
+obligatorio** (sobre todo con RUC 20) y se hace solo en Finangher:
+
+1. **Régimen tributario.**
+2. **Tipo de afectación del IGV**, si el régimen lo pide.
+3. **Comprobantes electrónicos**: revisar las series de boleta y factura.
+4. **Logo del negocio** (Configuración, sobre la imagen del negocio, ícono de
+   cámara) y **dirección fiscal** en la misma tarjeta. El logo se imprime en
+   boletas y facturas: sin logo, el comprobante sale con las dos iniciales del
+   nombre. Pedirle al dueño la imagen del logo; si no la tiene en ese momento,
+   decírselo y dejarlo anotado como pendiente.
+5. Que cada fila de Configuración › Facturación diga «Configurado» o su estado.
 
 ## Paso 4 · Comprobar que dice «Listo para emitir»
 

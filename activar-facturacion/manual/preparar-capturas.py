@@ -65,6 +65,15 @@ PASOS = {
         src="fin/f01-configuracion.png", mask=[(988, 290, 2000, 368), (30, 1550, 380, 1605)],
         mark=[(896, 1098, 2178, 1396), (896, 1466, 2178, 1674)]),
     "f02-regimen": dict(src="fin/f02-regimen.png"),
+    "f09-configuracion-logo": dict(
+        src="fin/f09-configuracion-logo.png",
+        mask=[(1072, 486, 1338, 534), (30, 1550, 380, 1605)],
+        mark=[(924, 410, 1050, 536), (1068, 548, 2156, 676)],
+        label=[(540, 440, "Tu logo"), (1500, 690, "Tu dirección fiscal")]),
+    "f10-afectacion-igv": dict(
+        src="fin/f10-afectacion-igv.png", mark=[(1710, 326, 2516, 1590)]),
+    "f11-comprobantes": dict(
+        src="fin/f11-comprobantes.png", mark=[(1710, 246, 2516, 666)]),
     "f03-usuario-sol": dict(
         src="fin/f03-usuario-sol.png",
         mark=[(1710, 284, 2516, 404), (1710, 468, 2516, 588)]),

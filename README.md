@@ -8,6 +8,7 @@ gratis: úsalas, cópialas y mejóralas.
 |---|---|
 | [`rastrear-envio`](rastrear-envio/) | Le das a Claude el número de orden y el código de tu ticket de Shalom y te responde en qué estado está el envío. |
 | [`registrar-venta`](registrar-venta/) | Le pides a Claude una boleta o factura y la arma en tu Finangher, te muestra el resumen, la emite con tu «sí» y le envía el PDF a tu cliente. |
+| [`integrar-compras`](integrar-compras/) | Claude trae a tu Finangher las facturas de compra que SUNAT ya conoce, ubica cada producto en tu catálogo, te muestra cómo va a quedar y registra con tu «sí». Tu stock se actualiza. |
 
 ## rastrear-envio
 
@@ -126,6 +127,70 @@ pide confirmar una sola cosa: si tus ventas llevan IGV o están exoneradas.
   la skill pregunta antes de emitir.
 - Si Finangher cambia una pantalla, Claude lee lo que ve y se detiene ante la
   duda; no adivina.
+
+## integrar-compras
+
+Cuando un proveedor te factura con tu RUC, esa compra ya está en SUNAT, completa.
+Con esta skill Claude la trae a tu Finangher, ubica cada producto de la factura
+en tu catálogo, te muestra cómo va a quedar y registra la compra cuando le dices
+«sí». Tu stock sube con lo que compraste.
+
+- **No toma fotos ni copia la factura.** Usa la que tu proveedor ya emitió.
+- **Te pregunta lo que el sistema no puede saber:** cómo pagaste y a qué
+  producto tuyo corresponde un ítem cuando hay duda.
+- **Solo registra con tu confirmación**, y pulsa «Registrar» una sola vez.
+- **Respeta la unidad de la factura:** si viene en sacos, registra sacos; si
+  viene en kilos, registra kilos.
+- **No pide ni escribe contraseñas ni tu Clave SOL.** Tú inicias sesión; Claude
+  opera tu sesión.
+- No edita ni elimina compras ya registradas, y no declara impuestos.
+
+### Qué necesitas
+
+- Una cuenta en [Finangher](https://finangher.com) con tu negocio configurado:
+  tus productos en el catálogo y tu cuenta de SUNAT conectada.
+- Un Claude que pueda operar tu navegador con tu sesión iniciada (por ejemplo,
+  Claude con su extensión para Chrome, o Claude Code con una herramienta de
+  navegador).
+
+### Instalar
+
+Abre Claude Code y pídeselo:
+
+> Instala la skill integrar-compras de https://github.com/lucasBecrod/skills-finangher
+
+A mano:
+
+```bash
+git clone https://github.com/lucasBecrod/skills-finangher.git
+mkdir -p ~/.claude/skills
+cp -r skills-finangher/integrar-compras ~/.claude/skills/
+```
+
+No tiene dependencias que instalar: son instrucciones para Claude.
+
+### Usar
+
+> Registra esta compra: la factura de mi proveedor de alimento, la pagué por Yape
+
+También puedes pedirle el panorama: «¿qué compras tengo sin registrar?».
+
+### Límites que debes conocer
+
+- Probada en computadora, en `finangher.com`, con facturas de mercadería de 2 y
+  3 líneas, con presentaciones (sacos y kilos) y pago al contado. Armar una
+  compra así toma alrededor de un minuto; con abrir la factura, confirmar y
+  comprobar, de 2 a 3 minutos.
+- Sirve para las compras del día o de la semana. Un mes entero atrasado se
+  trabaja por partes.
+- Todavía no está probada con facturas de muchas líneas, líneas gratuitas
+  (bonificaciones), notas de crédito, ni subiendo el XML de una factura que
+  llegó sin detalle. En esos casos Claude se detiene y te pregunta.
+- SUNAT solo conoce las facturas emitidas con tu RUC. Una boleta simple o una
+  compra sin comprobante no aparecen.
+- Una compra registrada con factura no se edita. Por eso la skill revisa cada
+  producto antes de registrar.
+- La instalación desde cero en otra computadora no está probada.
 
 ## Licencia
 

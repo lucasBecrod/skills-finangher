@@ -61,6 +61,19 @@ certificado; de lo contrario tendría que comprar uno. **Antes de enviar,
 confirmar que el negocio no tiene ya un certificado vigente**: si lo tiene, no
 pedir el CDT sin que el dueño lo decida.
 
+**SUNAT lo da solo dos veces por RUC** (experiencia de Finangher en las
+activaciones). Se puede pedir un segundo antes de que venzan los 3 años, pero
+después no hay un tercero: desde entonces el negocio tiene que comprar un
+certificado o usar un PSE. Por eso:
+
+- Preguntar si ya lo pidió antes. Si ya lo pidió dos veces, no intentarlo: ir
+  al camino PSE o a un certificado comprado.
+- Enviar la solicitud **una sola vez** y en una computadora, con tiempo para
+  terminar RENIEC, la contraseña y la descarga en la misma sesión.
+- **La contraseña del certificado no se puede olvidar**: el dueño la anota
+  antes de generar. Perder el archivo o la contraseña gasta una de las dos
+  oportunidades.
+
 1. En SOL, en el buscador del menú escribir **certificado** y elegir
    **Solicitar Certificado Digital Tributario**. Se abre «Solicitud de
    Certificado Digital Tributario» con RUC, razón social, correo y celular del

@@ -41,6 +41,8 @@ certificado», con un botón para copiar el RUC. Si la pantalla muestra otro RUC
    ingresos y no tener otro CDT vigente; los requisitos vigentes están en
    `https://cpe.sunat.gob.pe/certificado-digital`). Si SOL no lo da, anotar el
    motivo que muestra y pasar al *PSE* o a un certificado comprado.
+   **SUNAT lo da solo dos veces por RUC**: si el negocio ya lo pidió dos veces,
+   ir directo al *PSE* o a un certificado comprado.
 
 ## Cómo proponerlo
 

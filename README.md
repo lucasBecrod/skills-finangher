@@ -9,6 +9,7 @@ gratis: úsalas, cópialas y mejóralas.
 | [`rastrear-envio`](rastrear-envio/) | Le das a Claude el número de orden y el código de tu ticket de Shalom y te responde en qué estado está el envío. |
 | [`registrar-venta`](registrar-venta/) | Le pides a Claude una boleta o factura y la arma en tu Finangher, te muestra el resumen, la emite con tu «sí» y le envía el PDF a tu cliente. |
 | [`integrar-compras`](integrar-compras/) | Claude trae a tu Finangher las facturas de compra que SUNAT ya conoce, ubica cada producto en tu catálogo, te muestra cómo va a quedar y registra con tu «sí». Tu stock se actualiza. |
+| [`activar-facturacion`](activar-facturacion/) | Claude te guía para activar la facturación electrónica en tu Finangher, con tu certificado o con un PSE, hasta que SUNAT acepta tu primera boleta. Incluye un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf) para ti. |
 
 ## rastrear-envio
 
@@ -191,6 +192,57 @@ También puedes pedirle el panorama: «¿qué compras tengo sin registrar?».
 - Una compra registrada con factura no se edita. Por eso la skill revisa cada
   producto antes de registrar.
 - La instalación desde cero en otra computadora no está probada.
+
+## activar-facturacion
+
+Claude te acompaña desde cero hasta tu primera boleta aceptada por SUNAT. Te
+ayuda a elegir cómo firmar tus comprobantes (tu certificado, el gratuito de
+SUNAT o uno comprado, o un PSE), te dicta los pasos en SUNAT uno por uno y deja
+lista la configuración en Finangher.
+
+- **Lo que pasa en SUNAT lo haces tú,** con tu Clave SOL. Claude te dice qué
+  pulsar y lee contigo lo que ves.
+- **No pide ni escribe tus claves:** ni la Clave SOL, ni la del usuario
+  secundario, ni la contraseña del certificado.
+- **Termina con tu primera boleta real,** emitida con tu «sí» (usa la skill
+  `registrar-venta`).
+- Trae un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf)
+  con los mismos pasos, para que lo tengas a mano.
+
+### Qué necesitas
+
+- Tu RUC y tu Clave SOL principal.
+- Una cuenta en [Finangher](https://finangher.com) con tu negocio.
+- Un Claude que pueda operar tu navegador con tu sesión iniciada.
+
+### Instalar
+
+> Instala la skill activar-facturacion de https://github.com/lucasBecrod/skills-finangher
+
+A mano:
+
+```bash
+git clone https://github.com/lucasBecrod/skills-finangher.git
+mkdir -p ~/.claude/skills
+cp -r skills-finangher/activar-facturacion ~/.claude/skills/
+```
+
+### Usar
+
+> Quiero activar mi facturación electrónica en Finangher
+
+### Límites que debes conocer
+
+- Todavía no está probada de punta a punta con un negocio nuevo. Los pasos
+  salen de las pantallas actuales de Finangher y de activaciones reales hechas
+  a mano.
+- Los menús de SUNAT cambian. Si una opción no aparece, Claude te pide una
+  captura y se detiene antes de adivinar.
+- No sirve para quien SUNAT obliga a emitir por OSE (principales
+  contribuyentes, agentes de retención o percepción).
+- Con tu certificado, SUNAT te habilita desde el día siguiente; con el PSE,
+  desde la fecha de inicio que elijas. Tu primera boleta puede salir recién ese
+  día.
 
 ## Licencia
 

@@ -31,18 +31,21 @@ certificado», con un botón para copiar el RUC. Si la pantalla muestra otro RUC
    todavía. Regularizar en SUNAT.
 2. **¿Es PRICO, agente de retención o de percepción?** → SUNAT lo obliga a
    emitir por OSE. Estos caminos no sirven; escribir a Finangher.
-3. **¿Ya tiene un certificado vigente?** → Camino *certificado propio*.
-4. **¿Es Nuevo RUS?** → Proponer *PSE*. Puede usar un certificado comprado si
-   lo prefiere. No prometer el certificado gratuito: si el dueño quiere
-   intentarlo, que lo pida en SOL y se ve qué responde SUNAT.
-5. **Régimen Especial, MYPE o General, sin certificado** → Proponer el
-   **certificado gratuito de SUNAT (CDT)**. SUNAT lo da a quien cumple sus
-   requisitos (renta de tercera categoría, RUC activo y habido, límite de
-   ingresos y no tener otro CDT vigente; los requisitos vigentes están en
-   `https://cpe.sunat.gob.pe/certificado-digital`). Si SOL no lo da, anotar el
-   motivo que muestra y pasar al *PSE* o a un certificado comprado.
-   **SUNAT lo da solo dos veces por RUC**: si el negocio ya lo pidió dos veces,
-   ir directo al *PSE* o a un certificado comprado.
+3. **¿Ya tiene a mano un archivo `.pfx`/`.p12` vigente con su contraseña?** →
+   Se sube ese. Casi nunca pasa: no asumirlo ni preguntarlo como primera opción.
+4. **¿Ya pidió el certificado gratuito dos veces?** → SUNAT no da un tercero:
+   *PSE* o certificado comprado.
+5. **Todos los demás (también Nuevo RUS)** → **ir a pedir el certificado
+   gratuito de SUNAT (CDT)**. Es el camino por defecto: se obtiene en la misma
+   sesión y no depende de Finangher. SUNAT lo da a quien cumple sus requisitos
+   (los vigentes están en `https://cpe.sunat.gob.pe/certificado-digital`); para
+   saber si el negocio califica, no se adivina: se pide y SOL responde. Si SOL
+   no lo da, anotar el motivo que muestra y pasar al *PSE* (o a un certificado
+   comprado si el dueño prefiere).
+
+Por qué este orden: si se pregunta «¿tienes certificado?», todos dicen «no» y
+terminan en el PSE, esperando a que Finangher registre su RUC y les entregue el
+código. Con el CDT el dueño termina solo y en el momento.
 
 ## Cómo proponerlo
 

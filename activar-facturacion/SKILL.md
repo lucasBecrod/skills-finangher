@@ -68,9 +68,14 @@ emitir antes de tocar nada.
 1. **¿Cómo declaras tus impuestos?** Nuevo RUS (pagas S/ 20 o S/ 50 al mes)
    o Régimen Especial, MYPE o General. Si no sabe, que lo pregunte a su
    contador; no adivinarlo.
-2. **¿Tienes un certificado digital** (un archivo `.pfx` o `.p12` con su
-   contraseña)?
+2. **¿Ya pediste antes el certificado gratuito de SUNAT?** (SUNAT lo da solo
+   dos veces por RUC.)
 3. **¿Ya creaste un usuario SOL secundario** para tu sistema de facturación?
+
+**No preguntar «¿tienes certificado?».** Casi nadie lo tiene a mano y todos
+responden «no», lo que los empuja al PSE y a esperar a Finangher. La pregunta
+correcta es si SUNAT le da el certificado gratis, y eso se responde **yendo a
+pedirlo**: es el camino por defecto y el más rápido, porque no depende de nadie.
 
 Con esas respuestas se elige el camino en
 [references/elegir-camino.md](references/elegir-camino.md). Proponer **uno** y
@@ -78,10 +83,15 @@ decir por qué, en una línea. El dueño decide.
 
 | Situación | Camino que se propone |
 |---|---|
-| Nuevo RUS | **PSE** (Finangher no puede saber si SUNAT le da el certificado gratuito; el PSE no lo necesita) |
-| Régimen Especial, MYPE o General, sin certificado | **Certificado gratuito de SUNAT (CDT)**. Si SUNAT no se lo da, **PSE** |
-| Ya tiene certificado vigente | **Su certificado** |
+| Cualquier negocio (también Nuevo RUS) que no lo pidió dos veces | **Pedir el certificado gratuito de SUNAT (CDT)** en el tramo 3. Si SOL no lo da, anotar el motivo y pasar al **PSE** |
+| Ya lo pidió dos veces, o SOL lo rechazó | **PSE** (o un certificado comprado, si el dueño prefiere) |
+| Dice que ya tiene un archivo `.pfx`/`.p12` vigente con su contraseña | **Ese certificado**: se sube y listo |
 | Es PRICO, agente de retención o de percepción | Ninguno de estos caminos sirve: SUNAT lo obliga a emitir por OSE. Derivar a Finangher por WhatsApp |
+
+En Finangher, la firma pregunta «Tengo mi certificado digital / No tengo
+certificado». Con el CDT recién descargado, el dueño **sí** lo tiene: elegir
+«Tengo mi certificado digital». «No tengo certificado» es solo para cuando SUNAT
+no se lo dio.
 
 ## Pasos 2 y 3 · Uno por uno: lo que sale de SUNAT va de inmediato a Finangher
 

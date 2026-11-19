@@ -12,6 +12,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 BASE = os.environ.get("CAPTURAS_ORIGINALES", "capturas-originales")
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "capturas")
 ROJO = (227, 38, 47)
+ROJO_NUMERO = (240, 0, 0)
 GRIS = (90, 90, 96)
 FUENTE = ImageFont.truetype(os.environ.get("FUENTE", "/System/Library/Fonts/Helvetica.ttc"), 34)
 
@@ -24,16 +25,16 @@ PASOS = {
     # Técnica de la guía de Facturita: números sobre la misma pantalla.
     "s02-menu-secundarios": dict(
         src="sol/06-sol-admin-secundarios.png", mask=[(366, 660, 1194, 890), (1466, 660, 1932, 890), (366, 1098, 1208, 1246)],
-        mark=[(1180, 132, 1702, 222, 1), (20, 452, 188, 498, 2, "d")],
-        label=[(560, 156, "Clic aquí › Usuarios secundarios"),
-               (260, 456, "Crear Usuario")]),
+        mark=[(1180, 132, 1702, 222, 1, "i"), (20, 452, 188, 498, 2)],
+        label=[(460, 156, "Clic aquí › Usuarios secundarios"),
+               (300, 456, "Crear Usuario")]),
     "s03-crear-secundario": dict(
         src="sol/07-sol-crear-secundario-vacio.png",
-        mark=[(1190, 140, 1690, 214, 1), (416, 382, 832, 460, 2, "d"), (416, 538, 832, 580, 3, "d"),
-              (416, 580, 832, 622, 4, "d"), (416, 620, 772, 666, 5, "d"), (416, 664, 772, 710, 6, "d"),
+        mark=[(1190, 140, 1690, 214, 1, "i"), (416, 382, 832, 460, 2), (416, 538, 832, 580, 3),
+              (416, 580, 832, 622, 4), (416, 620, 772, 666, 5), (416, 664, 772, 710, 6),
               (26, 786, 142, 820)],
-        label=[(910, 400, "Elige DNI y escribe el DNI de quien configura"), (910, 540, "Correo (opcional)"),
-               (910, 582, "FINANGHE"), (850, 664, "Tu clave, 2 veces (8 a 12 caracteres)")]),
+        label=[(945, 400, "Elige DNI y escribe el DNI de quien configura"), (945, 540, "Correo (opcional)"),
+               (945, 582, "FINANGHE"), (885, 664, "Tu clave, 2 veces (8 a 12 caracteres)")]),
     "s04-programas-see": dict(
         src="sol/11-sol-see-servicio-envio.png", mask=[CAB_OPCIONES],
         mark=[(425, 878, 952, 1022), (1042, 586, 1932, 736)]),
@@ -78,7 +79,9 @@ PASOS = {
         mark=[(924, 410, 1050, 536), (1068, 548, 2156, 676)],
         label=[(540, 440, "Tu logo"), (1500, 690, "Tu dirección fiscal")]),
     "f10-afectacion-igv": dict(
-        src="fin/f10-afectacion-igv.png", mark=[(1710, 326, 2516, 1590)]),
+        src="fin/f10-afectacion-igv.png",
+        mark=[(1714, 328, 2512, 474, 1), (1714, 734, 2512, 942, 2)],
+        label=[(1150, 380, "Fuera de la Amazonía"), (1260, 816, "En la Amazonía")]),
     "f11-comprobantes": dict(
         src="fin/f11-comprobantes.png", mark=[(1710, 246, 2516, 666)]),
     "f03-usuario-sol": dict(
@@ -126,10 +129,15 @@ def preparar(nombre, src, crop=None, mask=(), mark=(), label=()):
     for r in mark:
         d.rounded_rectangle(r[:4], radius=14, outline=ROJO, width=7)
         if len(r) > 4:
-            rad = 26
+            # A la derecha del recuadro, separado, para no tapar nada; a la
+            # izquierda solo si no cabe en la imagen.
+            rad, sep = 28, 22
             cy = (r[1] + r[3]) // 2
-            cx = r[2] + rad + 8 if len(r) > 5 and r[5] == "d" else max(r[0] - 4, rad + 2)
-            d.ellipse((cx - rad, cy - rad, cx + rad, cy + rad), fill=ROJO)
+            cx = r[2] + sep + rad
+            if cx + rad > im.width or (len(r) > 5 and r[5] == "i"):
+                cx = r[0] - sep - rad
+            d.ellipse((cx - rad, cy - rad, cx + rad, cy + rad), fill=ROJO_NUMERO,
+                      outline="white", width=4)
             n = str(r[4])
             w = d.textlength(n, font=FUENTE)
             d.text((cx - w / 2, cy - 20), n, fill="white", font=FUENTE)

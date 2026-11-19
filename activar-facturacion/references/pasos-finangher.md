@@ -80,14 +80,16 @@ La fila pasa a «Con el PSE». La hoja muestra «Tus series: B… y F…».
 
 ## 4. Tipo de afectación del IGV
 
-Grupo **Emisión electrónica** › **Tipo de afectación del IGV**. Marcar las
-afectaciones que usa el negocio, según su contador. Las que existen:
+Grupo **Emisión electrónica** › **Tipo de afectación del IGV**. Se activa
+**una sola**, según dónde está el negocio:
 
-- IGV Impuesto General a las Ventas (18 %)
-- IGV Tasa Reducida MYPE (Ley 31556) (8 %)
-- IGV Exonerado
-- Inafecto
-- Exportación
+- **Fuera de la Amazonía → «IGV Impuesto General a las Ventas» (18 %).**
+- **En la Amazonía → «IGV Exonerado»** (y la casilla «Régimen Amazonía — Ley
+  27037» que aparece debajo).
+
+Preguntar al dueño en qué zona está si no se puede leer de su dirección fiscal.
+Las demás (Tasa Reducida MYPE 8 %, Inafecto, Exportación) no se activan salvo
+que el dueño o su contador lo indiquen expresamente.
 
 Con Nuevo RUS la fila dice «No aplica (Nuevo RUS)»: no se toca.
 

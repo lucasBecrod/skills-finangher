@@ -41,6 +41,14 @@ directamente en SUNAT o en Finangher.
 | **Negocio** | RUC, razón social, domicilio, régimen, cómo firma | Se lee de Finangher. El régimen se pregunta una vez y se guarda **en Finangher** |
 | **Operación** | La primera venta real | La dice el dueño; se emite con la skill `registrar-venta` |
 
+## Requisito: una computadora
+
+**Todo este trabajo se hace desde una computadora**, no desde un teléfono: en
+el teléfono el certificado digital no se descarga. Si el dueño está en el
+celular, pedirle que pase a una computadora antes de empezar. El archivo del
+certificado debe quedar en la misma computadora desde la que se abre
+Finangher para subirlo.
+
 ## Paso 0 · Ver dónde está el negocio
 
 Con la sesión del dueño iniciada en Finangher, abrir **Configuración ›

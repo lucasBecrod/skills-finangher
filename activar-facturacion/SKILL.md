@@ -119,6 +119,11 @@ es; la clave API la genera SUNAT y se copia, no se inventa.
 | **2 · Credenciales API** | Credenciales de API SUNAT: obtener ID y clave | **Credenciales API SUNAT**: pegar ID y clave. Debe quedar «Guardadas» |
 | **3 · Firma** | Certificado: pedir el CDT (B) o registrar el comprado (C), y la casilla SEE (D). **O** PSE: Altas/Bajas de PSE (E) | **Firma de tus comprobantes**: subir el archivo con su contraseña, **o** «Ya lo habilité en SUNAT» y el código para facturar |
 
+Antes del tramo 1, explicar en una línea qué es el usuario secundario: un acceso
+restringido que el dueño le da a Finangher, que solo entra a las funciones de
+comprobantes que él marca con check; el resto de su SUNAT y su Clave SOL
+principal siguen siendo solo suyos, y puede suspenderlo cuando quiera.
+
 Al cerrar cada tramo, confirmar con el dueño que la fila de Finangher cambió de
 «Falta» a su estado antes de volver a SUNAT. Si el dueño ya tenía hecho algún
 tramo en SUNAT (por ejemplo, el usuario secundario), llevar ese dato a

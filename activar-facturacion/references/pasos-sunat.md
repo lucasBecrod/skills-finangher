@@ -12,9 +12,15 @@ por su nombre en el buscador del menú antes de rendirse.
 
 ## A. Usuario SOL secundario
 
-Es una credencial que el dueño crea para que **el sistema** (no una persona)
-trabaje con SUNAT sin conocer la clave principal. Finangher la usa para emitir
-con certificado propio y para traer las compras de SUNAT.
+**Qué es, para explicárselo al dueño:** es un acceso restringido que el dueño le
+da a Finangher. SUNAT tiene miles de funciones; este usuario solo puede entrar a
+las que el dueño marca con check (las de comprobantes electrónicos), y nada
+más: no ve ni toca declaraciones, pagos, deudas ni el resto de su SUNAT. La
+Clave SOL principal sigue siendo solo del dueño, y él puede suspender o
+eliminar este usuario cuando quiera desde la misma pantalla.
+
+Lo usa **el sistema**, nunca una persona: Finangher lo necesita para emitir con
+certificado propio y para traer las compras de SUNAT.
 
 **Una sola clave para todo.** Antes de empezar, el dueño elige **una clave**
 que usará para el usuario secundario y, más adelante, para el certificado

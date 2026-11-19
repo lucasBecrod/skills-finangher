@@ -190,27 +190,25 @@ Fuente: guía del PSE «Guía para ALTA SUNAT como proveedores de servicios
 electrónicos a INTAI SAC» (Facturita, versión 2.0; capturas de 2020–2021, el
 menú de SOL puede verse distinto hoy).
 
-1. En sunat.gob.pe: **Operaciones en Línea (SOL) › Mis trámites y consultas ›
-   Ingresar**. El dueño escribe RUC, usuario y clave SOL y pulsa **Iniciar
-   sesión**.
-2. En el menú, pestaña **Empresas**.
-3. **Comprobantes de pago › Factura Electrónica › Comunicación de
-   Tercerización con PSE › Altas/Bajas de PSE**. Se abre «COMUNICACIÓN
-   TERCERIZACIÓN CON PSE», con una tabla (RUC, Razón Social, Inicio
-   Autorización, Fin Autorización, Baja).
+1. En la **misma sesión de SOL** de los tramos anteriores (no hace falta volver
+   a entrar), escribir **PSE** en el buscador del menú y elegir **Altas/Bajas de
+   PSE**. Desde el menú es: pestaña **Empresas** › Comprobantes de pago ›
+   Factura Electrónica › Comunicación de Tercerización con PSE › Altas/Bajas de
+   PSE. Se abre «COMUNICACIÓN TERCERIZACIÓN CON PSE», con una tabla (RUC, Razón
+   Social, Inicio Autorización, Fin Autorización, Baja).
    - **Si la tabla ya muestra `20602186793` sin fecha de fin**, el alta ya
-     existe: no crear otra. Ir al paso 7.
-4. Botón **Alta Servicio** (debajo de la tabla). Se abre «Alta de
+     existe: no crear otra. Ir al paso 5.
+2. Botón **Alta Servicio** (debajo de la tabla). Se abre «Alta de
    autorización de PSE».
-5. En **RUC**, el dueño pega `20602186793` (o el que muestre Finangher) y
-   pulsa el botón **«…»** al costado. SUNAT completa la razón social: debe
+3. En **RUC**, el dueño pega `20602186793` (o el que muestre Finangher) y
+   pulsa el botón **«..»** al costado. SUNAT completa la razón social: debe
    decir **INTAI SOCIEDAD ANONIMA CERRADA**. Si sale otra o ninguna, el RUC está
    mal escrito: no guardar.
-6. En **Inicio Autorización Envío**, elegir la fecha más próxima que SUNAT
+4. En **Inicio Autorización Envío**, elegir la fecha más próxima que SUNAT
    permita (siempre posterior a hoy) y pulsar **Guardar**. La tabla debe
    listar el RUC del PSE, su razón social y esa fecha de inicio. Pedirle al
    dueño una captura de esa tabla, para él.
-7. Volver a Finangher y pulsar **«Ya lo habilité en SUNAT»**.
+5. Volver a Finangher y pulsar **«Ya lo habilité en SUNAT»**.
 
 El PSE puede emitir por el negocio **desde la fecha de inicio** que se guardó.
 Si la primera venta es antes, esperar a esa fecha y decírselo al dueño antes de

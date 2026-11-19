@@ -83,33 +83,38 @@ decir por qué, en una línea. El dueño decide.
 | Ya tiene certificado vigente | **Su certificado** |
 | Es PRICO, agente de retención o de percepción | Ninguno de estos caminos sirve: SUNAT lo obliga a emitir por OSE. Derivar a Finangher por WhatsApp |
 
-## Paso 2 · Lo que el dueño hace en SUNAT
+## Pasos 2 y 3 · Uno por uno: lo que sale de SUNAT va de inmediato a Finangher
 
-Seguir [references/pasos-sunat.md](references/pasos-sunat.md) según el camino.
-Un paso por mensaje. Después de cada uno, preguntar qué ve en pantalla. Si SOL
-muestra algo distinto a lo descrito, no improvisar: pedir una captura, leerla y
-anotar la diferencia en la bitácora.
+**Regla de oro: un dato a la vez.** Cada cosa que se obtiene en SUNAT se lleva
+a Finangher **antes** de pedir la siguiente. Nunca hacer todo en SUNAT y luego
+todo en Finangher: así se confunden las contraseñas (la del usuario
+secundario, la clave API y la del certificado) y se pega una en el lugar de
+otra.
 
-- **Certificado (gratuito o comprado):** usuario SOL secundario → obtener o
-  registrar el certificado → marcar «Deseo emitir a través del SEE - Del
-  Contribuyente».
-- **PSE:** autorizar al PSE en SOL (Altas/Bajas de PSE) con la fecha de inicio
-  que SOL permita. El usuario SOL secundario es opcional en este camino, pero
-  se recomienda crearlo igual: Finangher lo usa para traer las compras de
-  SUNAT.
+Antes de los tramos, en Finangher: **Régimen tributario** (no depende de
+SUNAT).
 
-## Paso 3 · Lo que se configura en Finangher
+| Tramo | En SUNAT ([pasos-sunat.md](references/pasos-sunat.md)) | En seguida, en Finangher ([pasos-finangher.md](references/pasos-finangher.md)) |
+|---|---|---|
+| **1 · Usuario secundario** | Crear `FINANGHE` y asignar programas (A) | Configuración › Facturación › **Usuario SOL secundario**: usuario y su clave. Debe quedar «Guardado» |
+| **2 · Credenciales API** | Credenciales de API SUNAT: obtener ID y clave | **Credenciales API SUNAT**: pegar ID y clave. Debe quedar «Guardadas» |
+| **3 · Firma** | Certificado: pedir el CDT (B) o registrar el comprado (C), y la casilla SEE (D). **O** PSE: Altas/Bajas de PSE (E) | **Firma de tus comprobantes**: subir el archivo con su contraseña, **o** «Ya lo habilité en SUNAT» y el código para facturar |
 
-Seguir [references/pasos-finangher.md](references/pasos-finangher.md). Claude
-puede abrir cada fila y dejar el formulario listo; **los campos de clave los
-escribe el dueño**. Orden:
+Al cerrar cada tramo, confirmar con el dueño que la fila de Finangher cambió de
+«Falta» a su estado antes de volver a SUNAT. Si el dueño ya tenía hecho algún
+tramo en SUNAT (por ejemplo, el usuario secundario), llevar ese dato a
+Finangher primero y recién seguir.
 
-1. Régimen tributario.
-2. Usuario SOL secundario (si aplica).
-3. Firma de tus comprobantes: subir certificado, **o** autorizar al PSE y
-   pegar el código para facturar.
-4. Tipo de afectación del IGV (si el régimen lo pide).
-5. Comprobantes electrónicos: revisar las series que propone Finangher.
+En SUNAT: un paso por mensaje, preguntando qué ve. Si SOL muestra algo distinto
+a lo descrito, no improvisar: pedir una captura, leerla y anotar la diferencia
+en la bitácora. En Finangher, Claude puede abrir la fila y dejar el formulario
+listo; **los campos de clave los escribe el dueño**.
+
+En el camino PSE el tramo 2 (API) no es necesario para emitir, pero se
+recomienda: Finangher lo usa para traer las compras de SUNAT y emitir guías.
+
+Después de los tres tramos, en Finangher: **Tipo de afectación del IGV** (si el
+régimen lo pide) y **Comprobantes electrónicos** (revisar las series).
 
 ## Paso 4 · Comprobar que dice «Listo para emitir»
 

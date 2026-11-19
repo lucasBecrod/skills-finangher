@@ -54,6 +54,30 @@ con certificado propio y para traer las compras de SUNAT.
    **Siguiente** guarda. «Resumen de opciones asignadas» muestra lo vigente.
    Nada de Aduaneros ni Bienes Fiscalizados.
 
+**Fin del tramo 1:** llevar ya el usuario `FINANGHE` y su clave a Finangher
+(Usuario SOL secundario) y confirmar «Guardado» antes de seguir.
+
+## A2. Credenciales API SUNAT
+
+Sirven para que Finangher consulte SIRE (compras y ventas) y emita guías. Se
+crean con la Clave SOL principal.
+
+1. En el buscador del menú escribir **API** y elegir **Gestión Credenciales de
+   API SUNAT**. Se abre «API SUNAT · REGISTRE SU APLICACIÓN».
+   - **Si el formulario ya muestra una aplicación con ID y CLAVE**, el negocio
+     ya tiene una. No editarla sin preguntar: cambiarla corta al sistema que
+     la usa (su contador u otro). Preguntar al dueño si es la de Finangher o
+     de quién es.
+2. **Nombre de su aplicación:** `Finangher`. **URL de su aplicación:**
+   `https://finangher.com`.
+3. **Seleccionar Todos** los programas de la lista.
+4. Tipo de aplicación: **Desktop**, no Web.
+5. Generar. SUNAT muestra el **ID** y la **CLAVE**. El dueño los copia
+   directamente a Finangher; no se dictan ni se pegan en el chat.
+
+**Fin del tramo 2:** pegar ID y clave en Finangher (Credenciales API SUNAT) y
+confirmar «Guardadas» antes de seguir.
+
 ## B. Certificado gratuito de SUNAT (CDT)
 
 Vale alrededor de S/ 300 (3 años): es justo lo que el dueño quiere si no tiene

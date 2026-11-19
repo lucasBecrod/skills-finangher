@@ -38,6 +38,7 @@
     <div><b>B · No tengo certificado</b>firma un PSE por mí</div>
   </div>
   <p style="font-size:14pt"><b>💻 Hazlo desde una computadora.</b> En el teléfono el certificado no se descarga.</p>
+  <p style="font-size:13pt"><b>Uno por uno:</b> lo que sacas de SUNAT lo pegas en Finangher en seguida. Así no se confunden tus contraseñas.</p>
   <p style="font-size:12pt">Tus claves las escribes tú. Nadie más las necesita.</p>
 </section>
 
@@ -52,24 +53,28 @@
 <script>
 // Un paso = una captura + una línea. La captura vive en capturas/<archivo>.
 // Si aún no existe, la página muestra qué captura falta.
+// Uno por uno: cada dato que sale de SUNAT entra a Finangher antes del siguiente.
 const PASOS = [
-  ["Ambos caminos", "Abre Configuración › Facturación", "01-finangher-configuracion.png"],
-  ["Ambos caminos", "Elige cómo declaras tus impuestos", "02-finangher-regimen.png"],
-  ["A · Certificado — en SUNAT", "Entra a SUNAT con tu Clave SOL", "03-sol-ingreso.png"],
-  ["A · Certificado — en SUNAT", "Crea el usuario secundario FINANGHE (sin la R)", "04-sol-crear-secundario.png"],
-  ["A · Certificado — en SUNAT", "Marca estas opciones y pulsa Siguiente", "05-sol-opciones-secundario.png"],
-  ["A · Certificado — en SUNAT", "Pide tu certificado gratuito. Solo te lo dan 2 veces: anota tu contraseña", "06-sol-pedir-cdt.png"],
-  ["A · Certificado — en SUNAT", "Marca «Deseo emitir a través del SEE - Del Contribuyente»", "07-sol-casilla-see.png"],
-  ["A · Certificado — en Finangher", "Pega tu usuario secundario", "08-finangher-usuario-sol.png"],
-  ["A · Certificado — en Finangher", "Sube tu certificado y su contraseña", "09-finangher-subir-certificado.png"],
-  ["B · PSE — en Finangher", "Elige «No tengo certificado» y copia el RUC", "10-finangher-no-tengo-certificado.png"],
-  ["B · PSE — en SUNAT", "Ve a Altas/Bajas de PSE", "11-sol-altas-bajas-pse.png"],
-  ["B · PSE — en SUNAT", "Pega el RUC, elige la fecha y guarda", "12-sol-alta-servicio.png"],
-  ["B · PSE — en Finangher", "Pulsa «Ya lo habilité en SUNAT»", "13-finangher-ya-lo-habilite.png"],
-  ["B · PSE — en Finangher", "Pega el código que te enviamos", "14-finangher-codigo-para-facturar.png"],
-  ["Ambos caminos", "Revisa que diga «Listo para emitir»", "15-finangher-listo-para-emitir.png"],
-  ["Ambos caminos", "Haz tu primera venta con boleta", "16-finangher-primera-boleta.png"],
-  ["Ambos caminos", "Mira que diga «Aceptado»", "17-finangher-aceptado.png"],
+  ["Inicio — en Finangher", "Abre Configuración › Facturación", "f01-configuracion.png"],
+  ["Inicio — en Finangher", "Elige cómo declaras tus impuestos", "f02-regimen.png"],
+  ["1 · Usuario secundario — en SUNAT", "Entra a SUNAT con tu Clave SOL", "s01-ingreso.png"],
+  ["1 · Usuario secundario — en SUNAT", "Bienvenido › Administración de usuarios secundarios", "s02-menu-secundarios.png"],
+  ["1 · Usuario secundario — en SUNAT", "Crea el usuario FINANGHE (sin la R) y anota su clave", "s03-crear-secundario.png"],
+  ["1 · Usuario secundario — en SUNAT", "Comprobantes de pago › SEE: marca sus 3 bloques", "s04-programas-see.png"],
+  ["1 · Usuario secundario — en SUNAT", "Factura Electrónica: marca sus 7 bloques y pulsa Siguiente", "s05-programas-factura.png"],
+  ["1 · Usuario secundario — en Finangher", "Pega el usuario FINANGHE y su clave", "f03-usuario-sol.png"],
+  ["2 · API — en SUNAT", "Busca «API» › Gestión Credenciales de API SUNAT", "s06-buscar-api.png"],
+  ["2 · API — en SUNAT", "Nombre Finangher, URL finangher.com, todos los programas, Desktop", "s07-registrar-api.png"],
+  ["2 · API — en Finangher", "Pega el ID y la clave", "f04-credenciales-api.png"],
+  ["3A · Certificado — en SUNAT", "Busca «certificado» › Solicitar Certificado Digital Tributario", "s08-buscar-certificado.png"],
+  ["3A · Certificado — en SUNAT", "Marca «Acepto» y envía. Solo te lo dan 2 veces: anota tu contraseña", "s09-solicitar-cdt.png"],
+  ["3A · Certificado — en Finangher", "Sube tu certificado y su contraseña", "f05-subir-certificado.png"],
+  ["3B · PSE — en Finangher", "Si no tienes certificado: «No tengo certificado» y copia el RUC", "f06-no-tengo-certificado.png"],
+  ["3B · PSE — en SUNAT", "Busca «PSE» › Altas/Bajas de PSE › Alta Servicio", "s10-alta-servicio.png"],
+  ["3B · PSE — en SUNAT", "Pega el RUC, pulsa «..», elige la fecha y guarda", "s11-alta-servicio-ruc.png"],
+  ["3B · PSE — en Finangher", "«Ya lo habilité en SUNAT» y pega el código que te enviamos", "f07-codigo-para-facturar.png"],
+  ["Final — en Finangher", "Revisa que diga «Listo para emitir»", "f08-listo-para-emitir.png"],
+  ["Final — en Finangher", "Haz tu primera venta con boleta y mira que diga «Aceptado»", "f09-aceptado.png"],
 ];
 const cont = document.getElementById("pasos");
 PASOS.forEach(([tramo, texto, archivo], i) => {

@@ -51,9 +51,19 @@ PASOS = {
         mark=[(1068, 794, 1312, 842), (1256, 886, 1430, 932), (1530, 948, 1648, 996)],
         label=[(1360, 748, "20602186793 y «..»")]),
     # --- Finangher (versión clara) ---
-    "f01-configuracion": dict(
+    # Configuración › Facturación al inicio de cada paso, marcando solo su fila.
+    "f01a-config-usuario-sol": dict(
         src="fin/f01-configuracion.png", mask=[(988, 290, 2000, 368), (30, 1550, 380, 1605)],
-        mark=[(896, 720, 2178, 1026)]),
+        mark=[(896, 722, 2178, 822)]),
+    "f01b-config-api": dict(
+        src="fin/f01-configuracion.png", mask=[(988, 290, 2000, 368), (30, 1550, 380, 1605)],
+        mark=[(896, 822, 2178, 926)]),
+    "f01c-config-firma": dict(
+        src="fin/f01-configuracion.png", mask=[(988, 290, 2000, 368), (30, 1550, 380, 1605)],
+        mark=[(896, 926, 2178, 1026)]),
+    "f01d-config-sin-sunat": dict(
+        src="fin/f01-configuracion.png", mask=[(988, 290, 2000, 368), (30, 1550, 380, 1605)],
+        mark=[(896, 1098, 2178, 1396), (896, 1466, 2178, 1674)]),
     "f02-regimen": dict(src="fin/f02-regimen.png"),
     "f03-usuario-sol": dict(
         src="fin/f03-usuario-sol.png",

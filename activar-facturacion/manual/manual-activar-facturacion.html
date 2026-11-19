@@ -21,6 +21,11 @@
   .indice .ip { flex:none; width:150px; font-weight:700; }
   .indice .it { flex:1; }
   .indice .ipg { flex:none; color:var(--sec); }
+  .seccion { gap:6px; }
+  .sec-paso { font-size:13pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--acc); }
+  .sec-titulo { font-size:24pt; font-weight:700; line-height:1.15; }
+  .sec-resumen { font-size:13pt; color:var(--sec); margin-bottom:2mm; }
+  .seccion .cap img { max-height:138mm; }
   .tramo { font-size:10pt; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--sec); }
   .paso { display:flex; align-items:baseline; gap:10px; }
   .num { flex:none; width:34px; height:34px; border-radius:50%; background:var(--ink); color:#fff; font-size:15pt; font-weight:700; display:flex; align-items:center; justify-content:center; }
@@ -56,8 +61,7 @@
 // Cada sección es un paso del índice; cada página, una captura + una línea.
 // Uno por uno: cada dato que sale de SUNAT entra a Finangher antes del siguiente.
 const SECCIONES = [
-  ["Paso 1", "Obtén tu usuario SOL secundario", [
-    ["En Finangher", "Abre Configuración › Facturación. Empezamos por «Usuario SOL secundario»", "f01a-config-usuario-sol.png"],
+  ["Paso 1", "Obtén tu usuario SOL secundario", "f01a-config-usuario-sol.png", "Lo creas en SUNAT y lo pegas en «Usuario SOL secundario».", [
     ["En SUNAT", "Entra a SUNAT con tu Clave SOL", "s01-ingreso.png"],
     ["En SUNAT", "① Clic en «Bienvenido», sobre tu nombre › Administración de usuarios secundarios. ② Crear Usuario", "s02-menu-secundarios.png"],
     ["En SUNAT", "Llena del ② al ⑥: tu DNI, correo, usuario FINANGHE (sin la R) y tu clave dos veces. Anótala", "s03-crear-secundario.png"],
@@ -65,26 +69,23 @@ const SECCIONES = [
     ["En SUNAT", "Factura Electrónica: marca sus 7 bloques y pulsa Siguiente", "s05-programas-factura.png"],
     ["En Finangher", "Pega el usuario FINANGHE y su clave", "f03-usuario-sol.png"],
   ]],
-  ["Paso 2", "Trae o genera tu clave API", [
-    ["En Finangher", "Ahora «Credenciales API SUNAT»", "f01b-config-api.png"],
+  ["Paso 2", "Trae o genera tu clave API", "f01b-config-api.png", "La traes de SUNAT y la pegas en «Credenciales API SUNAT».", [
     ["En SUNAT", "Busca «API» › Gestión Credenciales de API SUNAT", "s06-buscar-api.png"],
     ["En SUNAT", "¿Ya tienes una? Lápiz › Seleccionar Todos › actualiza y usa esa misma clave. Si no: Finangher, finangher.com, todos los programas, Desktop", "s07-registrar-api.png"],
     ["En Finangher", "Pega el ID y la CLAVE", "f04-credenciales-api.png"],
   ]],
-  ["Paso 3", "Firma tus comprobantes: certificado gratuito de SUNAT", [
-    ["En Finangher", "Ahora «Firma de tus comprobantes»", "f01c-config-firma.png"],
+  ["Paso 3", "Firma tus comprobantes: certificado gratuito de SUNAT", "f01c-config-firma.png", "Pides tu certificado gratis en SUNAT y lo subes en «Firma de tus comprobantes».", [
     ["En SUNAT", "Busca «certificado» › Solicitar Certificado Digital Tributario", "s08-buscar-certificado.png"],
     ["En SUNAT", "Marca «Acepto» y envía. Solo te lo dan 2 veces: anota tu contraseña", "s09-solicitar-cdt.png"],
     ["En Finangher", "«Tengo mi certificado digital»: sube el archivo y escribe su contraseña", "f05-subir-certificado.png"],
   ]],
-  ["Opcional", "En lugar del paso 3, solo si SUNAT no te da el certificado: usa el PSE", [
+  ["Opcional", "En lugar del paso 3, solo si SUNAT no te da el certificado: usa el PSE", "f01c-config-firma.png", "Es la misma fila del paso 3, «Firma de tus comprobantes», pero firma un PSE por ti.", [
     ["En Finangher", "«No tengo certificado» y copia el RUC del PSE", "f06-no-tengo-certificado.png"],
     ["En SUNAT", "Busca «PSE» › Altas/Bajas de PSE › Alta Servicio", "s10-alta-servicio.png"],
     ["En SUNAT", "Pega el RUC, pulsa «..», elige la fecha y guarda", "s11-alta-servicio-ruc.png"],
     ["En Finangher", "«Ya lo habilité en SUNAT» y pega el código que te enviamos", "f07-codigo-para-facturar.png"],
   ]],
-  ["Paso 4", "Completa tu configuración (ya sin SUNAT)", [
-    ["En Finangher", "Ya puedes cerrar SUNAT. Completa lo de abajo: también es necesario para facturar", "f01d-config-sin-sunat.png"],
+  ["Paso 4", "Completa tu configuración (ya sin SUNAT)", "f01d-config-sin-sunat.png", "Ya puedes cerrar SUNAT. Completas lo de abajo, solo en Finangher: también es necesario para facturar.", [
     ["En Finangher", "Régimen tributario: elige cómo declaras tus impuestos", "f02-regimen.png"],
     ["En Finangher", "Tipo de afectación del IGV: activa solo una. ① IGV 18 % si estás fuera de la Amazonía. ② IGV Exonerado si estás en la Amazonía", "f10-afectacion-igv.png"],
     ["En Finangher", "Comprobantes electrónicos: revisa tus series de boleta y factura", "f11-comprobantes.png"],
@@ -95,9 +96,17 @@ const SECCIONES = [
 const cont = document.getElementById("pasos");
 const indice = document.getElementById("indice");
 let pagina = 2; // la 1 es la portada
-for (const [paso, titulo, paginas] of SECCIONES) {
+for (const [paso, titulo, portada, resumen, paginas] of SECCIONES) {
   indice.insertAdjacentHTML("beforeend",
     `<li><span class="ip">${paso}</span><span class="it">${titulo}</span><span class="ipg">pág. ${pagina}</span></li>`);
+  // Portada de la sección: el bloque que se hace, marcado solo en su fila.
+  const p = document.createElement("section");
+  p.className = "pag seccion";
+  p.innerHTML = `<div class="sec-paso">${paso}</div><div class="sec-titulo">${titulo}</div>
+    <div class="sec-resumen">${resumen}</div>
+    <div class="cap"><img src="capturas/${portada}" alt=""></div>`;
+  cont.appendChild(p);
+  pagina++;
   paginas.forEach(([donde, texto, archivo], i) => {
     const s = document.createElement("section");
     s.className = "pag";

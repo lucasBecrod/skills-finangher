@@ -22,6 +22,11 @@ eliminar este usuario cuando quiera desde la misma pantalla.
 Lo usa **el sistema**, nunca una persona: Finangher lo necesita para emitir con
 certificado propio y para traer las compras de SUNAT.
 
+**Si el dueño prefiere verlo en video:** «Generar usuario secundario Clave SOL»
+(canal Factura Peruana, 2,5 min): https://youtu.be/5YkcxrxsFIk. Es de 2020:
+sirve para ver cómo se crea el usuario, pero los programas que se marcan son
+los de esta sección, no los del video.
+
 **Una sola clave para todo.** Antes de empezar, el dueño elige **una clave**
 que usará para el usuario secundario y, más adelante, para el certificado
 digital. Así no se confunde de clave. Regla para que sirva en los dos:
@@ -100,6 +105,11 @@ crean con la Clave SOL principal.
 | CLAVE | Clave (en versiones anteriores, «Client secret») |
 
 ## B. Certificado gratuito de SUNAT (CDT)
+
+**Si el dueño prefiere verlo en video:** «Cómo descargar el Certificado Digital
+Tributario en SUNAT» (canal IFEM, 3,5 min): https://youtu.be/eVjXjeden2Y. Es el
+mismo que enlaza Finangher en «Cómo obtenerlo». La clave que se usa es la de
+esta skill (la misma del usuario secundario).
 
 Vale alrededor de S/ 300 (3 años): es justo lo que el dueño quiere si no tiene
 certificado; de lo contrario tendría que comprar uno. **Antes de enviar,

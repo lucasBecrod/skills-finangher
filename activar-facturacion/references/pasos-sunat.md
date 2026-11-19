@@ -75,8 +75,13 @@ crean con la Clave SOL principal.
 5. Generar. SUNAT muestra el **ID** y la **CLAVE**. El dueño los copia
    directamente a Finangher; no se dictan ni se pegan en el chat.
 
-**Fin del tramo 2:** pegar ID y clave en Finangher (Credenciales API SUNAT) y
-confirmar «Guardadas» antes de seguir.
+**Fin del tramo 2:** pegar en Finangher (Credenciales API SUNAT) y confirmar
+«Guardadas» antes de seguir. Los nombres cambian entre una pantalla y otra:
+
+| SUNAT | Finangher |
+|---|---|
+| ID | Client ID |
+| CLAVE | Client secret |
 
 ## B. Certificado gratuito de SUNAT (CDT)
 

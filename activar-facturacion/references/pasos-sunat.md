@@ -64,10 +64,10 @@ crean con la Clave SOL principal.
 
 1. En el buscador del menú escribir **API** y elegir **Gestión Credenciales de
    API SUNAT**. Se abre «API SUNAT · REGISTRE SU APLICACIÓN».
-   - **Si el formulario ya muestra una aplicación con ID y CLAVE**, el negocio
-     ya tiene una. No editarla sin preguntar: cambiarla corta al sistema que
-     la usa (su contador u otro). Preguntar al dueño si es la de Finangher o
-     de quién es.
+   - **Si el formulario ya muestra una aplicación con ID y CLAVE**, no crear
+     otra: se usa esa misma. Pulsar el **lápiz** (editar), **Seleccionar
+     Todos** los programas y actualizar, sin cambiar nombre ni URL. Luego
+     llevar ese mismo ID y CLAVE a Finangher y saltar al fin del tramo 2.
 2. **Nombre de su aplicación:** `Finangher`. **URL de su aplicación:**
    `https://finangher.com`.
 3. **Seleccionar Todos** los programas de la lista.

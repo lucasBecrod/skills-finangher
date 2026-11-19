@@ -34,11 +34,9 @@ Grupo **Conectar con SUNAT** › fila **Usuario SOL secundario**. Usuario:
 el usuario y la clave que creó en SOL (paso A de
 [pasos-sunat.md](pasos-sunat.md)). Al guardar, la fila dice «Guardado».
 
-- Camino certificado: **obligatorio**.
-- Camino PSE: no lo necesita para emitir, pero se recomienda (compras de SUNAT).
-
-La fila **Credenciales API SUNAT** («Para consultas SIRE y emisión de guías»)
-no es necesaria para la primera boleta. Dejarla para después.
+Se configura siempre, en cualquier camino, igual que la fila **Credenciales API
+SUNAT** (tramo 2): todo se deja hecho en la misma sesión de SUNAT, para que el
+dueño no tenga que volver a entrar ni escribir claves otra vez.
 
 ## 3. Firma de tus comprobantes
 

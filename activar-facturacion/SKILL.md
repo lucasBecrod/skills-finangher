@@ -101,8 +101,17 @@ todo en Finangher: así se confunden las contraseñas (la del usuario
 secundario, la clave API y la del certificado) y se pega una en el lugar de
 otra.
 
-Antes de los tramos, en Finangher: **Régimen tributario** (no depende de
-SUNAT).
+**Una sola sesión de SUNAT para los tres tramos.** SUNAT en una pestaña y
+Finangher en otra; no cerrar SOL entre tramos. Entrar a SOL, escribir claves y
+volver a buscar menús es lo que más cansa al dueño: los tres tramos se hacen de
+una vez, sin dejar ninguno «para después».
+
+**Una sola clave.** El dueño elige al inicio una clave que sirva para el usuario
+secundario y para el certificado: 10 a 12 caracteres, solo letras y números,
+con al menos una mayúscula, una minúscula y un número (detalle en
+[pasos-sunat.md](references/pasos-sunat.md), sección A). Así sabe siempre cuál
+es; la clave API la genera SUNAT y se copia, no se inventa.
+
 
 | Tramo | En SUNAT ([pasos-sunat.md](references/pasos-sunat.md)) | En seguida, en Finangher ([pasos-finangher.md](references/pasos-finangher.md)) |
 |---|---|---|

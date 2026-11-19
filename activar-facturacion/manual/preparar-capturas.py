@@ -34,7 +34,7 @@ PASOS = {
               (416, 580, 832, 622, 3), (416, 620, 772, 666, 4), (416, 664, 772, 710, 5),
               (26, 786, 142, 820)],
         label=[(945, 400, "Elige DNI y escribe el DNI de quien configura"),
-               (945, 582, "FINANGHE"), (885, 664, "Tu clave, 2 veces (8 a 12 caracteres)")]),
+               (945, 582, "FINANGHE"), (885, 664, "Tu clave, 2 veces: 10 a 12 letras y números")]),
     "s04-programas-see": dict(
         src="sol/11-sol-see-servicio-envio.png", mask=[CAB_OPCIONES],
         mark=[(425, 878, 952, 1022), (1042, 586, 1932, 736)]),

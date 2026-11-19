@@ -16,16 +16,27 @@ Es una credencial que el dueño crea para que **el sistema** (no una persona)
 trabaje con SUNAT sin conocer la clave principal. Finangher la usa para emitir
 con certificado propio y para traer las compras de SUNAT.
 
+**Una sola clave para todo.** Antes de empezar, el dueño elige **una clave**
+que usará para el usuario secundario y, más adelante, para el certificado
+digital. Así no se confunde de clave. Regla para que sirva en los dos:
+**10 a 12 caracteres, solo letras y números (sin @, puntos ni símbolos), con al
+menos una mayúscula, una minúscula y un número.** SOL acepta de 8 a 12
+caracteres (lo dice al pie del formulario); el certificado exige que sea
+alfanumérica y algunos certificados comprados piden al menos 10. La escribe y
+la anota el dueño; Claude no la ve ni la dicta.
+
 1. En SOL, menú **Bienvenido ▾ › Administración de usuarios secundarios ›
    Crear Usuario**. La pantalla lista los secundarios que ya existen.
    - **Si ya hay uno llamado `FINANGHE` activo**, es el de Finangher: no crear
      otro. Ir al paso 3 con ese usuario.
+   - **Si `FINANGHE` aparece como «Eliminado»**, SUNAT no deja volver a usar
+     ese nombre. Crear otro que el dueño reconozca como del sistema (por
+     ejemplo `FACTURAS`).
 2. Llenar el registro: tipo y número de documento de la persona (con DNI,
    SUNAT completa nombres y apellidos), usuario **`FINANGHE`** (sin la R final:
    así el dueño sabrá en el futuro que ese usuario es del sistema de
-   Finangher) y una clave de 8 a 12 caracteres, dos veces. El correo se deja
-   vacío: es opcional y no se le pide al dueño. **El dueño escribe la clave y la anota él**, en un lugar seguro;
-   no se dicta a Claude. Pulsar **Siguiente**.
+   Finangher) y la clave, dos veces. El correo se deja vacío: es opcional y no
+   se le pide al dueño. Pulsar **Siguiente**.
    - **Alto: un DNI, un solo secundario activo.** Si SUNAT responde «Ya existe
      un usuario (…) con este número de documento. ¿Desea dar
      permanentemente de baja al usuario anterior y crear este nuevo
@@ -36,23 +47,22 @@ con certificado propio y para traer las compras de SUNAT.
      confirma que ya no lo usa nadie.
 3. **Asignar Programas** (o, para un usuario que ya existe, seleccionarlo y
    **Modificar Programas**). En el árbol: **TRIBUTARIOS › Comprobantes de
-   pago**, y marcar:
+   pago**. Ahí hay dos ramas, y en **cada hoja de las dos** se marcan **todas
+   sus casillas, sin dejar ninguna**:
 
-   | Rama | Opción |
-   |---|---|
-   | SEE - Del Contribuyente y Envío de Documentos › Servicio de Envío de Documentos Electrónicos | Servicio de Envío de Documentos Electrónicos por Servicio Web |
-   | SEE - Del Contribuyente › Certificado Digital | Registro y Mantenimiento de Correo y Certificados Digitales |
-   | SEE - Del Contribuyente › Consultar Envíos de CPE | Todas las consultas de envío y «Consultar Disponibilidad del Servidor» |
-   | Factura Electrónica › Certificado Digital | Registro y Mantenimiento de Correo y Certificados Digitales |
-   | Factura Electrónica › Correo Electrónico | Actualizar Correo Electrónico |
-   | Factura Electrónica › Consultar Factura, Boletas y Notas | Consultar Factura, Boletas y Notas |
-   | Factura Electrónica › Comunicación de Tercerización con PSE | Altas/Bajas de PSE |
-   | Comprobante de Retención / de Percepción / Guía de Remisión | Sus consultas |
+   - **SEE - Del Contribuyente y Envío de Documentos** (3 hojas): Servicio de
+     Envío de Documentos Electrónicos · Certificado Digital · Consultar Envíos
+     de CPE.
+   - **Factura Electrónica** (7 hojas): Certificado Digital · Correo
+     Electrónico · Consultar Factura, Boletas y Notas · Comunicación de
+     Tercerización con PSE · Comprobante de Retención Electrónico ·
+     Comprobante de Percepción Electrónico · Guía de Remisión.
 
-   Hacer clic en cada hoja del árbol de la izquierda, marcar sus opciones a la
-   derecha y pasar a la siguiente (SOL conserva lo marcado). Al final,
-   **Siguiente** guarda. «Resumen de opciones asignadas» muestra lo vigente.
-   Nada de Aduaneros ni Bienes Fiscalizados.
+   Hacer clic en cada hoja del árbol de la izquierda; sus casillas aparecen a
+   la derecha y la casilla de arriba («Opción») las marca todas. Pasar a la
+   siguiente hoja (SOL conserva lo marcado). Al final, **Siguiente** guarda.
+   «Resumen de opciones asignadas» muestra lo vigente. Nada de Aduaneros ni
+   Bienes Fiscalizados.
 
 **Fin del tramo 1:** llevar ya el usuario `FINANGHE` y su clave a Finangher
 (Usuario SOL secundario) y confirmar «Guardado» antes de seguir.
@@ -111,8 +121,9 @@ certificado o usar un PSE. Por eso:
      Solicitud**. Lo pulsa el dueño, con su «sí».
 2. SOL dice si el RUC puede obtenerlo. Si no, **copiar el motivo tal cual** y
    volver a [elegir-camino.md](elegir-camino.md).
-3. Al generarlo, SOL pide una contraseña para el archivo. El dueño la escribe y
-   la guarda; la necesitará en Finangher.
+3. Al generarlo, SOL pide una contraseña para el archivo. El dueño escribe **la
+   misma clave que eligió para el usuario secundario** (por eso se pidió solo
+   letras y números). La necesitará en Finangher.
 4. Descargar el archivo (`.pfx` o `.p12`) a la computadora donde se abrirá
    Finangher.
 5. Seguir con **D** para confirmar que quedó como emisor del SEE - Del

@@ -28,11 +28,12 @@ PASOS = {
         mark=[(1180, 132, 1702, 222, 1, "i"), (20, 452, 188, 498, 2)],
         label=[(460, 156, "Clic aquí › Usuarios secundarios"),
                (300, 456, "Crear Usuario")]),
+    # «Bienvenido» ya se marcó en la pantalla anterior: aquí no se repite.
     "s03-crear-secundario": dict(
         src="sol/07-sol-crear-secundario-vacio.png",
-        mark=[(1190, 140, 1690, 214, 1, "i"), (416, 382, 832, 460, 2),
-              (416, 580, 832, 622, 3), (416, 620, 772, 666, 4), (416, 664, 772, 710, 5),
-              (26, 786, 142, 820)],
+        mark=[(416, 382, 832, 460, 1),
+              (416, 580, 832, 622, 2), (416, 620, 772, 666, 3), (416, 664, 772, 710, 4),
+              (26, 786, 142, 820, 5)],
         label=[(945, 400, "Elige DNI y escribe el DNI de quien configura"),
                (945, 582, "FINANGHE"), (885, 664, "Tu clave, 2 veces: 10 a 12 letras y números")]),
     "s04-programas-see": dict(
@@ -45,8 +46,14 @@ PASOS = {
         src="sol/21-sol-buscar-api.png", mark=[(628, 266, 1912, 370), (1500, 698, 1875, 780)]),
     "s07-registrar-api": dict(
         src="sol/22-sol-api-registre-aplicacion.png", mask=[(720, 572, 2000, 632, (233, 236, 239)), (720, 744, 2000, 804, (233, 236, 239))],
-        mark=[(708, 560, 2012, 644), (708, 732, 2012, 816), (708, 1044, 990, 1114)],
-        label=[(1300, 520, "Finangher"), (1300, 692, "https://finangher.com")]),
+        # Desktop/Web y Guardar quedan más abajo en la misma pantalla: se dibujan.
+        debajo="api-desktop-guardar",
+        mark=[(1922, 376, 2006, 460), (708, 560, 2012, 644, 1), (708, 732, 2012, 816, 2),
+              (708, 1044, 990, 1114, 3, "i"), (700, 1610, 1090, 1680, 4, "i"),
+              (712, 1704, 962, 1778, 5, "i")],
+        label=[(1300, 520, "Finangher"), (1300, 692, "https://finangher.com"),
+               (1230, 400, "¿Ya tienes una? Primero el lápiz"),
+               (1130, 1626, "Desktop, no Web")]),
     "s08-buscar-certificado": dict(
         src="sol/23-sol-buscar-certificado.png", mark=[(628, 266, 1912, 370), (776, 848, 1120, 928)]),
     "s09-solicitar-cdt": dict(
@@ -89,8 +96,10 @@ PASOS = {
         mark=[(1710, 284, 2516, 404), (1710, 468, 2516, 588)]),
     "f04-credenciales-api": dict(
         src="fin/f04-credenciales-api.png",
-        mark=[(1710, 300, 2516, 420), (1710, 468, 2516, 588)],
-        label=[(1960, 262, "= ID de SUNAT"), (1980, 430, "= CLAVE de SUNAT")]),
+        # Los nombres nuevos del formulario (rama fix/credenciales-api-id-clave).
+        texto=[(1712, 256, 1880, 298, "ID"), (1744, 336, 2060, 388, "El ID que te muestra SUNAT"),
+               (1712, 424, 1900, 466, "Clave"), (1744, 504, 2100, 556, "La clave que te muestra SUNAT")],
+        mark=[(1710, 300, 2516, 420, 1), (1710, 468, 2516, 588, 2), (1710, 710, 2516, 826, 3)]),
     "f05-subir-certificado": dict(
         src="fin/f05-subir-certificado.png",
         mark=[(1798, 320, 2490, 438), (1798, 560, 2490, 678), (1798, 704, 2490, 824)]),
@@ -106,12 +115,54 @@ PASOS = {
 }
 
 
-def preparar(nombre, src, crop=None, mask=(), mark=(), label=()):
+FUENTE_UI = ImageFont.truetype(os.environ.get("FUENTE", "/System/Library/Fonts/Helvetica.ttc"), 26)
+
+
+def dibujar_api_desktop_guardar(im):
+    """Agrega debajo de «Registre su aplicación» lo que la captura no alcanzó:
+    tipo de aplicación (Desktop / Web) y los botones Guardar y Cancelar."""
+    alto_extra = 360
+    nueva = Image.new("RGB", (im.width, im.height + alto_extra), "white")
+    nueva.paste(im, (0, 0))
+    d = ImageDraw.Draw(nueva)
+    y0 = im.height
+    d.rectangle((670, y0, 2048, y0 + alto_extra - 20), fill="white", outline=(200, 210, 222), width=2)
+    d.text((712, y0 + 24), "(más abajo, en la misma pantalla)", fill=(120, 120, 128), font=FUENTE_UI)
+    d.text((712, y0 + 76), "Tipo de aplicación:", fill=(30, 30, 30), font=FUENTE)
+    for i, (texto, elegido) in enumerate((("Desktop", True), ("Web", False))):
+        cx, cy = 744 + i * 220, y0 + 160
+        d.ellipse((cx - 16, cy - 16, cx + 16, cy + 16), outline=(90, 90, 96), width=3)
+        if elegido:
+            d.ellipse((cx - 8, cy - 8, cx + 8, cy + 8), fill=(13, 110, 253))
+        d.text((cx + 28, cy - 18), texto, fill=(30, 30, 30), font=FUENTE)
+    for i, texto in enumerate(("Guardar", "Cancelar")):
+        x = 722 + i * 270
+        d.rounded_rectangle((x, y0 + 228, x + 230, y0 + 290), radius=6,
+                            fill=(13, 110, 253) if i == 0 else (240, 240, 240),
+                            outline=(200, 200, 200))
+        w = d.textlength(texto, font=FUENTE)
+        d.text((x + (230 - w) / 2, y0 + 240), texto, fill="white" if i == 0 else (30, 30, 30), font=FUENTE)
+    return nueva
+
+
+DEBAJO = {"api-desktop-guardar": dibujar_api_desktop_guardar}
+
+
+def preparar(nombre, src, crop=None, mask=(), mark=(), label=(), texto=(), debajo=None):
     im = Image.open(os.path.join(BASE, src)).convert("RGB")
     # Las capturas claras de Finangher quedaron a 1x: se suben a 2x para usar
     # las mismas coordenadas que el resto.
     if im.width < 1500:
         im = im.resize((im.width * 2, im.height * 2), Image.LANCZOS)
+    if debajo:
+        im = DEBAJO[debajo](im)
+    # texto = (x0, y0, x1, y1, nuevo): reemplaza un texto de la pantalla por su
+    # versión vigente, con el color de fondo y de letra de la propia captura.
+    for x0, y0, x1, y1, nuevo in texto:
+        fondo = im.getpixel((x1 - 4, y0 + 4))
+        tinta = min((im.getpixel((x, (y0 + y1) // 2)) for x in range(x0, x1)), key=sum)
+        ImageDraw.Draw(im).rectangle((x0, y0, x1, y1), fill=fondo)
+        ImageDraw.Draw(im).text((x0 + 2, y0 + 6), nuevo, fill=tinta, font=FUENTE_UI)
     # Datos personales: difuminado (se nota que hay un dato, no se lee). Con
     # color explícito, se rellena (campos con valores viejos que confunden).
     for r in mask:

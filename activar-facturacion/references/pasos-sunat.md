@@ -87,8 +87,8 @@ crean con la Clave SOL principal.
 2. **Nombre de su aplicación:** `Finangher`. **URL de su aplicación:**
    `https://finangher.com`.
 3. **Seleccionar Todos** los programas de la lista.
-4. Tipo de aplicación: **Desktop**, no Web.
-5. Generar. SUNAT muestra el **ID** y la **CLAVE**. El dueño los copia
+4. Más abajo, en la misma pantalla: tipo de aplicación **Desktop**, no Web.
+5. **Guardar**. SUNAT muestra el **ID** y la **CLAVE**. El dueño los copia
    directamente a Finangher; no se dictan ni se pegan en el chat.
 
 **Fin del tramo 2:** pegar en Finangher (Credenciales API SUNAT) y confirmar
@@ -96,8 +96,8 @@ crean con la Clave SOL principal.
 
 | SUNAT | Finangher |
 |---|---|
-| ID | Client ID |
-| CLAVE | Client secret |
+| ID | ID (en versiones anteriores, «Client ID») |
+| CLAVE | Clave (en versiones anteriores, «Client secret») |
 
 ## B. Certificado gratuito de SUNAT (CDT)
 

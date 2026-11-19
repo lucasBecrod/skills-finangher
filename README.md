@@ -9,7 +9,7 @@ gratis: úsalas, cópialas y mejóralas.
 | [`rastrear-envio`](rastrear-envio/) | Le das a Claude el número de orden y el código de tu ticket de Shalom y te responde en qué estado está el envío. |
 | [`registrar-venta`](registrar-venta/) | Le pides a Claude una boleta o factura y la arma en tu Finangher, te muestra el resumen, la emite con tu «sí» y le envía el PDF a tu cliente. |
 | [`integrar-compras`](integrar-compras/) | Claude trae a tu Finangher las facturas de compra que SUNAT ya conoce, ubica cada producto en tu catálogo, te muestra cómo va a quedar y registra con tu «sí». Tu stock se actualiza. |
-| [`activar-facturacion`](activar-facturacion/) | Claude te guía para activar la facturación electrónica en tu Finangher, con tu certificado o con un PSE, hasta que SUNAT acepta tu primera boleta. Incluye un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf) para ti. |
+| [`activar-facturacion`](activar-facturacion/) | Claude te guía para activar la facturación electrónica en tu Finangher: primero pide contigo el certificado gratuito de SUNAT y, solo si SUNAT no te lo da, usa un PSE. Termina con tu primera boleta aceptada. Incluye un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf) para ti. |
 
 ## rastrear-envio
 
@@ -195,10 +195,10 @@ También puedes pedirle el panorama: «¿qué compras tengo sin registrar?».
 
 ## activar-facturacion
 
-Claude te acompaña desde cero hasta tu primera boleta aceptada por SUNAT. Te
-ayuda a elegir cómo firmar tus comprobantes (tu certificado, el gratuito de
-SUNAT o uno comprado, o un PSE), te dicta los pasos en SUNAT uno por uno y deja
-lista la configuración en Finangher.
+Claude te acompaña desde cero hasta tu primera boleta aceptada por SUNAT. Primero
+pide contigo el certificado gratuito de SUNAT; solo si SUNAT no te lo da, usa
+un PSE. Te dicta los pasos uno por uno y cada dato que sale de SUNAT lo deja en
+Finangher en seguida, para que no se confundan tus contraseñas.
 
 - **Lo que pasa en SUNAT lo haces tú,** con tu Clave SOL. Claude te dice qué
   pulsar y lee contigo lo que ves.

@@ -5,13 +5,15 @@ mask = rectángulos que se tapan; mark = recuadros rojos sobre lo que se toca;
 label = (x, y, texto) junto a una marca.
 """
 import os
+
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-BASE = "/Users/lucasbecrod/proyectos/finangher-space/.playwright-mcp"
-OUT = "/Users/lucasbecrod/proyectos/skills-finangher/activar-facturacion/manual/capturas"
+# Carpeta con las capturas originales (sin tapar), fuera del repo.
+BASE = os.environ.get("CAPTURAS_ORIGINALES", "capturas-originales")
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "capturas")
 ROJO = (227, 38, 47)
 GRIS = (90, 90, 96)
-FUENTE = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 34)
+FUENTE = ImageFont.truetype(os.environ.get("FUENTE", "/System/Library/Fonts/Helvetica.ttc"), 34)
 
 # Nombre del usuario y de la empresa en la cabecera de «Asignación de opciones».
 CAB_OPCIONES = (930, 343, 1555, 385)

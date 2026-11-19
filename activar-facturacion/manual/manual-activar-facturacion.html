@@ -25,6 +25,11 @@
   .claude-logo { float:left; width:34px; height:34px; margin:2px 12px 4px 0; }
   .skill-ia { margin-top:6px; font-size:9.5pt; color:var(--sec); }
   .skill-ia .url { white-space:nowrap; color:var(--sec); }
+  .separador { justify-content:center; align-items:center; text-align:center; gap:14px; }
+  .sep-paso { font-size:64pt; font-weight:800; line-height:1; color:var(--acc); letter-spacing:-.01em; }
+  .sep-titulo { font-size:30pt; font-weight:700; line-height:1.15; max-width:80%; }
+  .sep-resumen { font-size:15pt; color:var(--sec); max-width:70%; }
+  .chip { display:inline-block; background:var(--acc); color:#fff; border-radius:999px; padding:2px 12px; margin-right:6px; letter-spacing:.04em; }
   .seccion { gap:6px; }
   .sec-paso { font-size:13pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--acc); }
   .sec-titulo { font-size:24pt; font-weight:700; line-height:1.15; }
@@ -116,18 +121,24 @@ let pagina = 2; // la 1 es la portada
 for (const [paso, titulo, portada, resumen, paginas] of SECCIONES) {
   indice.insertAdjacentHTML("beforeend",
     `<li><span class="ip">${paso}</span><span class="it">${titulo}</span><span class="ipg">pág. ${pagina}</span></li>`);
+  // Separador: página limpia con el número y el título del paso.
+  const sep = document.createElement("section");
+  sep.className = "pag separador";
+  sep.innerHTML = `<div class="sep-paso">${paso}</div><div class="sep-titulo">${titulo}</div>
+    <div class="sep-resumen">${resumen}</div>`;
+  cont.appendChild(sep);
+  pagina++;
   // Portada de la sección: el bloque que se hace, marcado solo en su fila.
   const p = document.createElement("section");
   p.className = "pag seccion";
   p.innerHTML = `<div class="sec-paso">${paso}</div><div class="sec-titulo">${titulo}</div>
-    <div class="sec-resumen">${resumen}</div>
     <div class="cap"><img src="capturas/${portada}" alt=""></div>`;
   cont.appendChild(p);
   pagina++;
   paginas.forEach(([donde, texto, archivo], i) => {
     const s = document.createElement("section");
     s.className = "pag";
-    s.innerHTML = `<div class="tramo">${paso} · ${titulo} — ${donde}</div>
+    s.innerHTML = `<div class="tramo"><span class="chip">${paso}</span> ${titulo} — ${donde}</div>
       <div class="paso"><div class="num">${i + 1}</div><div class="txt">${texto}</div></div>
       <div class="cap"><img src="capturas/${archivo}" alt=""></div>`;
     const img = s.querySelector("img");

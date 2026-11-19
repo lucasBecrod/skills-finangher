@@ -59,6 +59,24 @@ PASOS = {
     "s09-solicitar-cdt": dict(
         src="sol/25-sol-cdt-acepto.png", mask=[(1392, 799, 1926, 863), (1392, 897, 1926, 961), (1392, 995, 1926, 1059), (1392, 1093, 1926, 1157)],
         mark=[(786, 1436, 1272, 1482)]),
+    # Del video tutorial «Cómo obtenerlo» (enlazado desde Finangher): lo que pasa
+    # después de «Enviar Solicitud». Se difuminan los datos de quien grabó.
+    "v1-mensaje-enlace": dict(
+        src="cdt/v1-mensaje-enlace.png", mask=[(1000, 596, 1444, 630)],
+        mark=[(884, 592, 1448, 634, 1)],
+        label=[(1000, 646, "Abre este enlace")]),
+    "v2-reniec-clave": dict(
+        src="cdt/v2-reniec-clave.png", mask=[(0, 134, 1920, 178), (300, 84, 700, 114)],
+        mark=[(1004, 572, 1500, 648, 1), (1004, 772, 1500, 848, 2), (1004, 866, 1328, 942, 3)],
+        label=[(1600, 592, "Tu misma clave"), (1600, 742, "Otra vez")]),
+    "v3-reniec-descargado": dict(
+        src="cdt/v3-reniec-descargado.png",
+        mask=[(0, 134, 1136, 178), (300, 84, 700, 114), (1140, 222, 1636, 392)],
+        mark=[(1140, 138, 1636, 218, 1, "i"), (468, 872, 1180, 918)],
+        label=[(800, 160, "Tu certificado"), (1200, 878, "Si la olvidas, está en tu Buzón SOL")]),
+    "v4-casilla-see": dict(
+        src="cdt/v4-casilla-see.png", mark=[(466, 462, 962, 508, 1)],
+        label=[(1050, 468, "Márcala y guarda")]),
     "s10-alta-servicio": dict(
         src="sol/28-sol-altas-bajas-pse-tabla.png", mark=[(622, 984, 824, 1036)]),
     "s11-alta-servicio-ruc": dict(

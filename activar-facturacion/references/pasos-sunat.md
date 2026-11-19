@@ -115,9 +115,9 @@ certificado o usar un PSE. Por eso:
   al camino PSE o a un certificado comprado.
 - Enviar la solicitud **una sola vez** y en una computadora, con tiempo para
   terminar RENIEC, la contraseña y la descarga en la misma sesión.
-- **La contraseña del certificado no se puede olvidar**: el dueño la anota
-  antes de generar. Perder el archivo o la contraseña gasta una de las dos
-  oportunidades.
+- **El archivo no se puede perder**: el enlace de RENIEC sirve para una sola
+  descarga. Perder el archivo gasta una de las dos oportunidades. La
+  contraseña, en cambio, RENIEC la envía al Buzón Electrónico SUNAT.
 
 1. En SOL, en el buscador del menú escribir **certificado** y elegir
    **Solicitar Certificado Digital Tributario**. Se abre «Solicitud de
@@ -125,15 +125,21 @@ certificado o usar un PSE. Por eso:
    contribuyente. Si un dato está mal, se corrige primero en SUNAT.
    - Marcar **Acepto los términos y condiciones** y pulsar **Enviar
      Solicitud**. Lo pulsa el dueño, con su «sí».
-2. SOL dice si el RUC puede obtenerlo. Si no, **copiar el motivo tal cual** y
-   volver a [elegir-camino.md](elegir-camino.md).
-3. Al generarlo, SOL pide una contraseña para el archivo. El dueño escribe **la
-   misma clave que eligió para el usuario secundario** (por eso se pidió solo
-   letras y números). La necesitará en Finangher.
-4. Descargar el archivo (`.pfx` o `.p12`) a la computadora donde se abrirá
-   Finangher.
-5. Seguir con **D** para confirmar que quedó como emisor del SEE - Del
-   Contribuyente.
+2. SOL responde con un **Mensaje del sistema**. Si el RUC no puede obtenerlo,
+   **copiar el motivo tal cual** y volver a [elegir-camino.md](elegir-camino.md).
+   Si se acepta, dice «Su solicitud ha sido aceptada mediante el número … y su
+   CDT ya puede ser descargado mediante el siguiente enlace» (un enlace de
+   `cdt.reniec.gob.pe`). El mismo enlace llega al **Buzón SOL**.
+3. Abrir el enlace: se abre la página de **RENIEC** con el RUC ya puesto. El
+   dueño escribe **la misma clave que eligió para el usuario secundario** en
+   **Contraseña** y en **Repita Contraseña** (RENIEC pide 8 o más caracteres) y
+   pulsa **Descargar Certificado**.
+4. Sale «¡Felicidades! Has descargado tu Certificado Digital Tributario» y se
+   descarga **`certificado.p12`** en la computadora. El enlace deja de
+   funcionar después de descargar. RENIEC envía la contraseña al **Buzón
+   Electrónico SUNAT**: si el dueño la olvida, la encuentra ahí.
+5. Volver a SUNAT y seguir con **D**: la casilla del SEE **también hay que
+   marcarla con el certificado gratuito** (no queda marcada sola).
 
 ## C. Certificado comprado a una entidad acreditada
 

@@ -21,12 +21,19 @@ CAB_OPCIONES = (930, 343, 1555, 385)
 PASOS = {
     # --- SUNAT ---
     "s01-ingreso": dict(src="sol/03-sol-ingreso.png"),
+    # Técnica de la guía de Facturita: números sobre la misma pantalla.
     "s02-menu-secundarios": dict(
         src="sol/06-sol-admin-secundarios.png", mask=[(366, 660, 1194, 890), (1466, 660, 1932, 890), (366, 1098, 1208, 1246)],
-        mark=[(20, 452, 188, 498)]),
+        mark=[(1180, 132, 1702, 222, 1), (20, 452, 188, 498, 2, "d")],
+        label=[(560, 156, "Clic aquí › Usuarios secundarios"),
+               (260, 456, "Crear Usuario")]),
     "s03-crear-secundario": dict(
-        src="sol/07-sol-crear-secundario-vacio.png", mark=[(415, 578, 832, 712), (26, 786, 142, 820)],
-        label=[(850, 600, "Usuario: FINANGHE · Clave: la escribes tú")]),
+        src="sol/07-sol-crear-secundario-vacio.png",
+        mark=[(1190, 140, 1690, 214, 1), (416, 382, 832, 460, 2, "d"), (416, 538, 832, 580, 3, "d"),
+              (416, 580, 832, 622, 4, "d"), (416, 620, 772, 666, 5, "d"), (416, 664, 772, 710, 6, "d"),
+              (26, 786, 142, 820)],
+        label=[(910, 400, "Elige DNI y escribe el DNI de quien configura"), (910, 540, "Correo (opcional)"),
+               (910, 582, "FINANGHE"), (850, 664, "Tu clave, 2 veces (8 a 12 caracteres)")]),
     "s04-programas-see": dict(
         src="sol/11-sol-see-servicio-envio.png", mask=[CAB_OPCIONES],
         mark=[(425, 878, 952, 1022), (1042, 586, 1932, 736)]),
@@ -114,8 +121,18 @@ def preparar(nombre, src, crop=None, mask=(), mark=(), label=()):
             zona = chica.resize(zona.size).filter(ImageFilter.GaussianBlur(10))
             im.paste(zona, caja[:2])
     d = ImageDraw.Draw(im)
+    # mark = (x0, y0, x1, y1) o (x0, y0, x1, y1, número): con número se dibuja
+    # un círculo rojo numerado a la izquierda del recuadro, como en la guía de Facturita.
     for r in mark:
-        d.rounded_rectangle(r, radius=14, outline=ROJO, width=7)
+        d.rounded_rectangle(r[:4], radius=14, outline=ROJO, width=7)
+        if len(r) > 4:
+            rad = 26
+            cy = (r[1] + r[3]) // 2
+            cx = r[2] + rad + 8 if len(r) > 5 and r[5] == "d" else max(r[0] - 4, rad + 2)
+            d.ellipse((cx - rad, cy - rad, cx + rad, cy + rad), fill=ROJO)
+            n = str(r[4])
+            w = d.textlength(n, font=FUENTE)
+            d.text((cx - w / 2, cy - 20), n, fill="white", font=FUENTE)
     for x, y, t in label:
         w = d.textlength(t, font=FUENTE)
         d.rounded_rectangle((x - 10, y - 6, x + w + 10, y + 40), radius=8, fill=ROJO)

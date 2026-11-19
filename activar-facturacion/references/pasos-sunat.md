@@ -23,8 +23,8 @@ con certificado propio y para traer las compras de SUNAT.
 2. Llenar el registro: tipo y número de documento de la persona (con DNI,
    SUNAT completa nombres y apellidos), usuario **`FINANGHE`** (sin la R final:
    así el dueño sabrá en el futuro que ese usuario es del sistema de
-   Finangher) y una clave de 8 a 12 caracteres, dos veces. El correo es
-   opcional. **El dueño escribe la clave y la anota él**, en un lugar seguro;
+   Finangher) y una clave de 8 a 12 caracteres, dos veces. El correo se deja
+   vacío: es opcional y no se le pide al dueño. **El dueño escribe la clave y la anota él**, en un lugar seguro;
    no se dicta a Claude. Pulsar **Siguiente**.
    - **Alto: un DNI, un solo secundario activo.** Si SUNAT responde «Ya existe
      un usuario (…) con este número de documento. ¿Desea dar

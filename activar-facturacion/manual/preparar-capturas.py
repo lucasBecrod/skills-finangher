@@ -30,10 +30,10 @@ PASOS = {
                (300, 456, "Crear Usuario")]),
     "s03-crear-secundario": dict(
         src="sol/07-sol-crear-secundario-vacio.png",
-        mark=[(1190, 140, 1690, 214, 1, "i"), (416, 382, 832, 460, 2), (416, 538, 832, 580, 3),
-              (416, 580, 832, 622, 4), (416, 620, 772, 666, 5), (416, 664, 772, 710, 6),
+        mark=[(1190, 140, 1690, 214, 1, "i"), (416, 382, 832, 460, 2),
+              (416, 580, 832, 622, 3), (416, 620, 772, 666, 4), (416, 664, 772, 710, 5),
               (26, 786, 142, 820)],
-        label=[(945, 400, "Elige DNI y escribe el DNI de quien configura"), (945, 540, "Correo (opcional)"),
+        label=[(945, 400, "Elige DNI y escribe el DNI de quien configura"),
                (945, 582, "FINANGHE"), (885, 664, "Tu clave, 2 veces (8 a 12 caracteres)")]),
     "s04-programas-see": dict(
         src="sol/11-sol-see-servicio-envio.png", mask=[CAB_OPCIONES],

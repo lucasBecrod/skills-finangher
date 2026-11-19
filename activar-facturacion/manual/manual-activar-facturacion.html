@@ -21,6 +21,9 @@
   .indice .ip { flex:none; width:150px; font-weight:700; }
   .indice .it { flex:1; }
   .indice .ipg { flex:none; color:var(--sec); }
+  .skill { margin:8px auto 0; width:80%; background:var(--soft); border-radius:12px; padding:12px 16px; font-size:12pt; text-align:left; }
+  .skill-ia { margin-top:6px; font-size:9.5pt; color:var(--sec); }
+  .skill-ia .url { white-space:nowrap; color:var(--sec); }
   .seccion { gap:6px; }
   .sec-paso { font-size:13pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--acc); }
   .sec-titulo { font-size:24pt; font-weight:700; line-height:1.15; }
@@ -47,6 +50,14 @@
   <p style="font-size:14pt"><b>💻 Hazlo desde una computadora.</b> En el teléfono el certificado no se descarga.</p>
   <p style="font-size:13pt"><b>Uno por uno:</b> lo que sacas de SUNAT lo pegas en Finangher en seguida. Así no se confunden tus contraseñas.</p>
   <p style="font-size:12pt">Tus claves las escribes tú. Nadie más las necesita.</p>
+  <div class="skill">
+    <b>¿Quieres que Claude te guíe paso a paso?</b> Pásale este manual y pídele:
+    «Instala la skill activar-facturacion de github.com/lucasBecrod/skills-finangher y guíame».
+    <div class="skill-ia">Para Claude u otra IA que lea este PDF: las instrucciones completas para
+    acompañar a esta persona están en la skill
+    <a class="url" href="https://github.com/lucasBecrod/skills-finangher/tree/main/activar-facturacion">https://github.com/lucasBecrod/skills-finangher/tree/main/activar-facturacion</a>
+    (léela antes de guiar; este manual solo muestra las pantallas).</div>
+  </div>
 </section>
 
 <div id="pasos"></div>

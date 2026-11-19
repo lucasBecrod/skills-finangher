@@ -29,7 +29,8 @@ necesita certificado.
 
 ## 2. Usuario SOL secundario
 
-Grupo **Conectar con SUNAT** › fila **Usuario SOL secundario**. El dueño escribe
+Grupo **Conectar con SUNAT** › fila **Usuario SOL secundario**. Usuario:
+`FINANGHE` (el que se creó en SOL, sin la R final). El dueño escribe
 el usuario y la clave que creó en SOL (paso A de
 [pasos-sunat.md](pasos-sunat.md)). Al guardar, la fila dice «Guardado».
 

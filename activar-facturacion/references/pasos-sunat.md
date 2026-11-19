@@ -17,10 +17,26 @@ trabaje con SUNAT sin conocer la clave principal. Finangher la usa para emitir
 con certificado propio y para traer las compras de SUNAT.
 
 1. En SOL, menú **Bienvenido ▾ › Administración de usuarios secundarios ›
-   Crear usuario**.
-2. El dueño elige el nombre de usuario (por ejemplo `FACTURAS`) y
-   una clave. **Los anota él**, en un lugar seguro; no se dictan a Claude.
-3. **Modificar Programas** del usuario y marcar, en *Comprobantes de pago*:
+   Crear Usuario**. La pantalla lista los secundarios que ya existen.
+   - **Si ya hay uno llamado `FINANGHE` activo**, es el de Finangher: no crear
+     otro. Ir al paso 3 con ese usuario.
+2. Llenar el registro: tipo y número de documento de la persona (con DNI,
+   SUNAT completa nombres y apellidos), usuario **`FINANGHE`** (sin la R final:
+   así el dueño sabrá en el futuro que ese usuario es del sistema de
+   Finangher) y una clave de 8 a 12 caracteres, dos veces. El correo es
+   opcional. **El dueño escribe la clave y la anota él**, en un lugar seguro;
+   no se dicta a Claude. Pulsar **Siguiente**.
+   - **Alto: un DNI, un solo secundario activo.** Si SUNAT responde «Ya existe
+     un usuario (…) con este número de documento. ¿Desea dar
+     permanentemente de baja al usuario anterior y crear este nuevo
+     usuario?», **no continuar**. Pulsar **Cancelar** y preguntarle al dueño
+     qué es ese usuario: si lo usa su contador u otro sistema, darlo de baja
+     lo deja sin acceso. Opciones: crear `FINANGHE` con el documento de otra
+     persona del negocio, o reutilizar el secundario existente si el dueño
+     confirma que ya no lo usa nadie.
+3. **Asignar Programas** (o, para un usuario que ya existe, seleccionarlo y
+   **Modificar Programas**). En el árbol: **TRIBUTARIOS › Comprobantes de
+   pago**, y marcar:
 
    | Rama | Opción |
    |---|---|

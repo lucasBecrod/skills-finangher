@@ -56,8 +56,17 @@ con certificado propio y para traer las compras de SUNAT.
 
 ## B. Certificado gratuito de SUNAT (CDT)
 
-1. En SOL, buscar **Certificado Digital Tributario** (en *Comprobantes de pago
-   › SEE - Del Contribuyente*) y solicitarlo.
+Vale alrededor de S/ 300 (3 años): es justo lo que el dueño quiere si no tiene
+certificado; de lo contrario tendría que comprar uno. **Antes de enviar,
+confirmar que el negocio no tiene ya un certificado vigente**: si lo tiene, no
+pedir el CDT sin que el dueño lo decida.
+
+1. En SOL, en el buscador del menú escribir **certificado** y elegir
+   **Solicitar Certificado Digital Tributario**. Se abre «Solicitud de
+   Certificado Digital Tributario» con RUC, razón social, correo y celular del
+   contribuyente. Si un dato está mal, se corrige primero en SUNAT.
+   - Marcar **Acepto los términos y condiciones** y pulsar **Enviar
+     Solicitud**. Lo pulsa el dueño, con su «sí».
 2. SOL dice si el RUC puede obtenerlo. Si no, **copiar el motivo tal cual** y
    volver a [elegir-camino.md](elegir-camino.md).
 3. Al generarlo, SOL pide una contraseña para el archivo. El dueño la escribe y

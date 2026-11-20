@@ -79,15 +79,35 @@ La fila pasa a «Con el PSE». La hoja muestra «Tus series: B… y F…».
 ## 4. Tipo de afectación del IGV
 
 Grupo **Emisión electrónica** › **Tipo de afectación del IGV**. Se activa
-**una sola**, según dónde está el negocio:
+**una sola**. Claude **pregunta, recomienda y marca solo con el «sí» del
+dueño**: es su situación tributaria, no una decisión de Claude. Si el dueño
+duda, que lo confirme con su contador antes de vender.
 
-- **Fuera de la Amazonía → «IGV Impuesto General a las Ventas» (18 %).**
-- **En la Amazonía → «IGV Exonerado»** (y la casilla «Régimen Amazonía — Ley
-  27037» que aparece debajo).
+Hacer estas preguntas en orden y quedarse con la primera que aplique:
 
-Preguntar al dueño en qué zona está si no se puede leer de su dirección fiscal.
-Las demás (Tasa Reducida MYPE 8 %, Inafecto, Exportación) no se activan salvo
-que el dueño o su contador lo indiquen expresamente.
+1. **«¿Tu negocio está en la Amazonía y vendes para consumo allí?»** (se puede
+   leer de la dirección fiscal: Loreto, Ucayali, Madre de Dios, San Martín,
+   Amazonas y zonas de selva de otros departamentos). Si sí →
+   **«IGV Exonerado»** y la casilla **«Régimen Amazonía — Ley 27037»** que
+   aparece debajo, que pone en el PDF la leyenda de la Amazonía. La
+   exoneración exige requisitos (domicilio y actividad en la zona); si no está
+   seguro, contador.
+2. **«¿Tu negocio es restaurante, hotel o alojamiento turístico?»** Si sí,
+   puede corresponderle **«IGV Tasa Reducida MYPE»**, pero solo si cumple todo
+   (Ley 31556 y su reglamento, DS 237-2022-EF):
+   - es micro o pequeña empresa, con ventas de hasta 1700 UIT al año;
+   - al menos el **70 %** de sus ingresos vienen de esas actividades;
+   - no está vinculado económicamente con otras empresas o grupos.
+
+   Si deja de cumplir, pierde la tasa desde el mes subsiguiente. Por eso
+   Claude la **recomienda, pero pide que la confirme el contador**; nunca la
+   marca por defecto. No decir el porcentaje de memoria: la tasa cambia por
+   año (Ley 32219); decir «la tasa reducida que muestra Finangher».
+3. **Ninguna de las dos (por ejemplo, un negocio en Lima)** → solo **«IGV
+   Impuesto General a las Ventas» (18 %)**.
+
+Inafecto y Exportación no se activan salvo que el dueño o su contador lo
+indiquen expresamente.
 
 Con Nuevo RUS la fila dice «No aplica (Nuevo RUS)»: no se toca.
 

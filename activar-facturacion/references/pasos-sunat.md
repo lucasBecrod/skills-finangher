@@ -170,19 +170,23 @@ En la misma pantalla de *Registro y Mantenimiento de Correo y Certificados
 Digitales*, marcar **«Deseo emitir a través del SEE - Del Contribuyente»** y
 guardar.
 
-**La calidad de emisor rige desde el día calendario siguiente.** Si se marca
-hoy, la primera boleta se emite mañana. Decírselo al dueño antes de terminar,
-para que no se sorprenda.
+**La calidad de emisor rige desde el día calendario siguiente** (norma de
+SUNAT). Igual se puede vender hoy: la boleta se genera con su PDF y Finangher
+la entrega a SUNAT al día siguiente. Decírselo al dueño antes de terminar, para
+que no se sorprenda.
 
 ### Si la primera boleta vuelve con 0111
 
 `0111 — No tiene el perfil para enviar comprobantes electrónicos` en la
-**primera** boleta casi siempre es esta casilla: no se marcó, o se marcó hoy.
+**primera** boleta casi siempre es esta casilla: se marcó hoy (lo normal) o no
+se marcó.
 
-1. Preguntar si la marcó y cuándo.
-2. Si no la marcó, marcarla.
-3. **No eliminar la venta.** El número no llegó a SUNAT; se reintenta al día
-   siguiente y sale con el mismo número.
+1. **No eliminar la venta ni reemitir.** El número no llegó a SUNAT. Finangher
+   programa **un** reintento automático para el día siguiente (hora de Lima) y
+   sale con el mismo número. A veces SUNAT ya lo acepta la misma tarde.
+2. Si el reintento del día siguiente **vuelve** a dar 0111, Finangher deja de
+   intentar: preguntar si marcó la casilla y cuándo. Si no la marcó, marcarla y
+   reintentar desde Operaciones al día siguiente.
 
 ## E. Autorizar al PSE (camino PSE)
 

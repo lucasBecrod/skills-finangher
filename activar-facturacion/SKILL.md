@@ -173,13 +173,21 @@ Emitirla con la skill `registrar-venta` (con su resumen y su «sí»). Si no est
 instalada, armar la venta en el punto de venta de Finangher, mostrar el resumen
 y pulsar «Vender» solo con el «sí» del dueño.
 
+**Se puede vender el mismo día de la activación.** La casilla del SEE (o la
+fecha de inicio del PSE) rige, por norma, desde el día siguiente. Si se vende
+hoy, la boleta o factura se genera y el cliente recibe su PDF, pero SUNAT puede
+devolver 0111 y no entregar todavía su constancia (CDR). No queda inválida:
+Finangher la reintenta sola al día siguiente y ahí SUNAT la acepta, con el
+mismo número. A veces SUNAT ya la acepta la misma tarde. Decírselo al dueño
+antes de la primera venta, para que no se preocupe si ve el aviso.
+
 Esperar la respuesta de SUNAT y leer el estado del comprobante en Operaciones:
 
 | Estado | Qué significa | Qué hacer |
 |---|---|---|
 | Aceptado | Terminado | Decir serie y número. Ofrecer enviarlo al cliente |
 | Esperando respuesta de SUNAT | SUNAT no respondió todavía | Esperar; Finangher reintenta solo. No volver a vender |
-| Rechazado con **0111** («No tiene el perfil») en la primera boleta | Falta la casilla «SEE - Del Contribuyente», o se marcó hoy y rige desde mañana | Ver [references/pasos-sunat.md](references/pasos-sunat.md) § 0111. No eliminar la venta: se reintenta al día siguiente con el mismo número |
+| Error **0111** («No tiene el perfil») en la primera boleta | Lo normal el día de la activación: la casilla del SEE rige desde mañana | No eliminar la venta ni reemitir. Finangher la reintenta **una vez**, solo, al día siguiente. Si ese reintento vuelve a dar 0111, falta marcar la casilla: ver [references/pasos-sunat.md](references/pasos-sunat.md) § 0111 |
 | «El Emisor no se encuentra registrado» (camino PSE) | Finangher todavía no registró el RUC en el PSE | Escribir a Finangher por WhatsApp con el RUC |
 | Otro rechazo | Algo de la configuración o del comprobante | Copiar el código y el mensaje tal cual; no reintentar a ciegas. Anotar en la bitácora |
 

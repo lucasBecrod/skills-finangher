@@ -22,10 +22,13 @@ eliminar este usuario cuando quiera desde la misma pantalla.
 Lo usa **el sistema**, nunca una persona: Finangher lo necesita para emitir con
 certificado propio y para traer las compras de SUNAT.
 
-**Si el dueño prefiere verlo en video:** «Generar usuario secundario Clave SOL»
-(canal Factura Peruana, 2,5 min): https://youtu.be/5YkcxrxsFIk. Es de 2020:
-sirve para ver cómo se crea el usuario, pero los programas que se marcan son
-los de esta sección, no los del video.
+**Video de apoyo, solo si el dueño lo pide:** «Generar usuario secundario
+Clave SOL» (canal Factura Peruana, 2,5 min): https://youtu.be/5YkcxrxsFIk.
+Decirle qué cubre: **solo cómo crear el usuario secundario en SUNAT**. No
+muestra dónde pegarlo en Finangher (eso está en el manual y en
+[pasos-finangher.md](pasos-finangher.md)). Es de 2020: los programas que se
+marcan son los de esta sección, no los del video. No ofrecerlo en lugar del
+manual.
 
 **Una sola clave para todo.** Antes de empezar, el dueño elige **una clave**
 que usará para el usuario secundario y, más adelante, para el certificado
@@ -106,10 +109,13 @@ crean con la Clave SOL principal.
 
 ## B. Certificado gratuito de SUNAT (CDT)
 
-**Si el dueño prefiere verlo en video:** «Cómo descargar el Certificado Digital
-Tributario en SUNAT» (canal IFEM, 3,5 min): https://youtu.be/eVjXjeden2Y. Es el
-mismo que enlaza Finangher en «Cómo obtenerlo». La clave que se usa es la de
-esta skill (la misma del usuario secundario).
+**Video de apoyo, solo si el dueño lo pide:** «Cómo descargar el Certificado
+Digital Tributario en SUNAT» (canal IFEM, 3,5 min): https://youtu.be/eVjXjeden2Y
+(el mismo que enlaza Finangher en «Cómo obtenerlo»). Decirle qué cubre:
+**solo cómo pedir y descargar el certificado en SUNAT y RENIEC**. No muestra
+cómo subirlo a Finangher ni la casilla del SEE (secciones D y
+[pasos-finangher.md](pasos-finangher.md)). La clave que se usa es la de esta
+skill (la misma del usuario secundario). No ofrecerlo en lugar del manual.
 
 Vale alrededor de S/ 300 (3 años): es justo lo que el dueño quiere si no tiene
 certificado; de lo contrario tendría que comprar uno. **Antes de enviar,

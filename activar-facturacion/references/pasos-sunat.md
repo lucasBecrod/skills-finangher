@@ -184,9 +184,15 @@ se marcó.
 1. **No eliminar la venta ni reemitir.** El número no llegó a SUNAT. Finangher
    programa **un** reintento automático para el día siguiente (hora de Lima) y
    sale con el mismo número. A veces SUNAT ya lo acepta la misma tarde.
-2. Si el reintento del día siguiente **vuelve** a dar 0111, Finangher deja de
+2. **Reintento manual.** Si el dueño no quiere esperar al automático, entra a
+   **Conciliación**: el comprobante aparece en «Necesita tu decisión» (ventas
+   por revisar) o en «Esperando respuesta de SUNAT». Abrirlo y pulsar
+   «Reintentar emisión» (o «Comprobar estado» si sigue en proceso). Finangher
+   decide si hace falta reenviar; no duplica el número. Antes del día
+   siguiente puede volver a dar 0111: es lo esperado.
+3. Si el reintento del día siguiente **vuelve** a dar 0111, Finangher deja de
    intentar: preguntar si marcó la casilla y cuándo. Si no la marcó, marcarla y
-   reintentar desde Operaciones al día siguiente.
+   reintentar desde Conciliación al día siguiente.
 
 ## E. Autorizar al PSE (camino PSE)
 

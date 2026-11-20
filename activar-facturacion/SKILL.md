@@ -186,8 +186,8 @@ Esperar la respuesta de SUNAT y leer el estado del comprobante en Operaciones:
 | Estado | Qué significa | Qué hacer |
 |---|---|---|
 | Aceptado | Terminado | Decir serie y número. Ofrecer enviarlo al cliente |
-| Esperando respuesta de SUNAT | SUNAT no respondió todavía | Esperar; Finangher reintenta solo. No volver a vender |
-| Error **0111** («No tiene el perfil») en la primera boleta | Lo normal el día de la activación: la casilla del SEE rige desde mañana | No eliminar la venta ni reemitir. Finangher la reintenta **una vez**, solo, al día siguiente. Si ese reintento vuelve a dar 0111, falta marcar la casilla: ver [references/pasos-sunat.md](references/pasos-sunat.md) § 0111 |
+| Esperando respuesta de SUNAT | SUNAT no respondió todavía | Esperar; Finangher reintenta solo. No volver a vender. En **Conciliación** aparece en «Esperando respuesta de SUNAT»: al abrirlo, «Comprobar estado» consulta sin reenviar |
+| Error **0111** («No tiene el perfil») en la primera boleta | Lo normal el día de la activación: la casilla del SEE rige desde mañana | No eliminar la venta ni reemitir. Finangher la reintenta **una vez**, solo, al día siguiente. Si el dueño no quiere esperar, la reintenta él desde **Conciliación** (abrir el comprobante › «Reintentar emisión»). Si el reintento vuelve a dar 0111, falta marcar la casilla: ver [references/pasos-sunat.md](references/pasos-sunat.md) § 0111 |
 | «El Emisor no se encuentra registrado» (camino PSE) | Finangher todavía no registró el RUC en el PSE | Escribir a Finangher por WhatsApp con el RUC |
 | Otro rechazo | Algo de la configuración o del comprobante | Copiar el código y el mensaje tal cual; no reintentar a ciegas. Anotar en la bitácora |
 

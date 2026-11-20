@@ -169,9 +169,16 @@ con una venta real del negocio, no con una de prueba. Preguntar:
 > Ya está listo. ¿Cuál es tu próxima venta? La emitimos juntos y así comprobamos
 > que todo funciona.
 
-Emitirla con la skill `registrar-venta` (con su resumen y su «sí»). Si no está
-instalada, armar la venta en el punto de venta de Finangher, mostrar el resumen
-y pulsar «Vender» solo con el «sí» del dueño.
+Emitirla con la skill `registrar-venta` (con su resumen y su «sí»): es la
+prueba de que la activación funciona. **Si no está instalada, ofrecer
+instalarla** antes de vender, con la misma frase del README:
+
+> Instala la skill registrar-venta de https://github.com/lucasBecrod/skills-finangher
+
+Está en la carpeta `registrar-venta/` del mismo repositorio. Una vez instalada,
+seguir con ella para emitir la primera boleta. Solo si el dueño no quiere
+instalarla, armar la venta en el punto de venta de Finangher, mostrar el
+resumen y pulsar «Vender» solo con el «sí» del dueño.
 
 **Se puede vender el mismo día de la activación.** La casilla del SEE (o la
 fecha de inicio del PSE) rige, por norma, desde el día siguiente. Si se vende

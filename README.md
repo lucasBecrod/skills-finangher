@@ -204,8 +204,9 @@ Finangher en seguida, para que no se confundan tus contraseñas.
   pulsar y lee contigo lo que ves.
 - **No pide ni escribe tus claves:** ni la Clave SOL, ni la del usuario
   secundario, ni la contraseña del certificado.
-- **Termina con tu primera boleta real,** emitida con tu «sí» (usa la skill
-  `registrar-venta`).
+- **Termina con tu primera boleta real,** emitida con tu «sí».
+- **Al terminar, emite tu primera boleta con [`registrar-venta`](registrar-venta/).**
+  Si no la tienes, Claude te ofrece instalarla.
 - Trae un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf)
   con los mismos pasos, para que lo tengas a mano.
 

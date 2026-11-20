@@ -189,7 +189,7 @@ Esperar la respuesta de SUNAT y leer el estado del comprobante en Operaciones:
 | Esperando respuesta de SUNAT | SUNAT no respondió todavía | Esperar; Finangher reintenta solo. No volver a vender. En **Conciliación** aparece en «Esperando respuesta de SUNAT»: al abrirlo, «Comprobar estado» consulta sin reenviar |
 | Error **0111** («No tiene el perfil») en la primera boleta | Lo normal el día de la activación: la casilla del SEE rige desde mañana | No eliminar la venta ni reemitir. Finangher la reintenta **una vez**, solo, al día siguiente. Si el dueño no quiere esperar, la reintenta él desde **Conciliación** (abrir el comprobante › «Reintentar emisión»). Si el reintento vuelve a dar 0111, falta marcar la casilla: ver [references/pasos-sunat.md](references/pasos-sunat.md) § 0111 |
 | «El Emisor no se encuentra registrado» (camino PSE) | Finangher todavía no registró el RUC en el PSE | Escribir a Finangher por WhatsApp con el RUC |
-| Otro rechazo | Algo de la configuración o del comprobante | Copiar el código y el mensaje tal cual; no reintentar a ciegas. Anotar en la bitácora |
+| Otro rechazo | Algo de la configuración o del comprobante | Copiar el código y el mensaje tal cual; no reintentar a ciegas. Anotar en la bitácora. Si no se arregla con esta skill: ofrecer la **puesta en marcha** (abajo) |
 
 **Cerrar con el resultado:** «Tu primera boleta, B002-1, fue aceptada por
 SUNAT. Desde ahora cada venta con boleta o factura se emite sola al vender.»
@@ -200,9 +200,32 @@ SUNAT. Desde ahora cada venta con boleta o factura se emite sola al vender.»
 |---|---|
 | El dueño quiere dictar su Clave SOL o la contraseña del certificado | Agradecer y pedirle que la escriba él en el campo. Nunca repetirla en el chat |
 | SOL dice que el RUC no puede obtener el certificado gratuito | Anotar el motivo que muestra SOL y pasar al camino PSE, o a un certificado comprado si el dueño prefiere |
-| SUNAT muestra el RUC como no activo o no habido | No se puede activar. El dueño lo regulariza en SUNAT primero |
+| SUNAT muestra el RUC como no activo o no habido | No se puede activar. El dueño lo regulariza en SUNAT primero. Si necesita que lo acompañen, ofrecer la **puesta en marcha** |
 | Finangher pide «Código para facturar» y el dueño no lo tiene | Lo da Finangher: «¿No tienes el código? Pídelo por WhatsApp» en esa misma pantalla |
-| La pantalla no coincide con esta skill | Detenerse, leer lo que hay, preguntar. Anotar en la bitácora |
+| La pantalla no coincide con esta skill | Detenerse, leer lo que hay, preguntar. Anotar en la bitácora. Si aun así no se puede seguir: ofrecer la **puesta en marcha** |
+| Cualquier traba que esta skill no resuelve | Ofrecer la **puesta en marcha** (abajo). No mandar a pedir ayuda por WhatsApp |
+
+## Cuando no se puede terminar por aquí: puesta en marcha
+
+Ayudar a terminar una activación no es soporte técnico gratuito: es la
+**puesta en marcha acompañada**, un servicio de pago único de **S/ 99** en el
+que el equipo de Finangher lo termina con el dueño en una videollamada. Si la
+skill no logra destrabar al dueño (pasos de SOL que no coinciden, rechazos que
+no se arreglan, RUC por regularizar), decirlo así, sin rodeos:
+
+> «Esto no se pudo resolver por aquí. El equipo de Finangher lo termina contigo
+> en una reunión de puesta en marcha (S/ 99, pago único). ¿Quieres agendarla?»
+
+Si acepta: en Finangher, **Configuración › Facturación electrónica**, el
+recuadro «¿Te ayudamos a configurar Finangher?» › **«Quiero ponerlo en
+marcha»** (también está en **Planes** › «Contratar puesta en marcha»). Ahí se
+contrata y se coordina la reunión.
+
+No es puesta en marcha (siguen como están): el **código para facturar** del
+PSE cuando SUNAT no da el certificado («Pídelo por WhatsApp» en esa pantalla) y
+los negocios que emiten por **OSE** (PRICO o agentes), que escriben a
+Finangher. Tampoco el aviso «El Emisor no se encuentra registrado» del camino
+PSE: es Finangher terminando el alta que ya pidió el dueño.
 
 ## Bitácora de tropiezos
 

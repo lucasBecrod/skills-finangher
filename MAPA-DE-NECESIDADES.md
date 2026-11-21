@@ -23,6 +23,7 @@ Estados: **Lista** (publicada en este repositorio) · **En preparación** ·
 | 12 | Que mi equipo me ayude | Invitar por correo, dar permisos, abrir sucursales | Equipo, Configuración › Sucursales | — | Falta |
 | 13 | Cobrar lo mismo cada mes | Cobros recurrentes (alquileres, mensualidades) que se generan solos | Automatizaciones | — | Falta |
 | 14 | Configurar mi negocio desde cero | Datos, sucursales, medios de pago y catálogo listos para operar | Configuración | — | Falta |
+| 15 | Declarar mis impuestos | La declaración del mes y la del año presentadas en SUNAT, con tu «sí» antes de enviar | — | — | Falta. Punto de partida: [`declarar-renta-personal`](en-construccion/declarar-renta-personal/), solo para personas |
 
 ¿Tu necesidad no está en la lista? Escríbenos: la agregamos como un espacio
 por completar.

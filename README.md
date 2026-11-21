@@ -14,6 +14,9 @@ gratis: úsalas, cópialas y mejóralas.
 ¿Qué necesidades del negocio ya cubren las skills y cuáles faltan? Ver el
 [mapa de necesidades](MAPA-DE-NECESIDADES.md).
 
+Las skills que todavía no están listas viven en
+[`en-construccion/`](en-construccion/).
+
 ## rastrear-envio
 
 Claude consulta la página pública de rastreo de Shalom

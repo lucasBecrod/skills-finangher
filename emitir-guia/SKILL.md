@@ -20,8 +20,8 @@ description: >
 > mercadería» en el detalle de una compra) **llega a finangher.com con la
 > próxima actualización**. Mientras tanto, si Claude no ve ese botón en la
 > compra, te avisa y se detiene: no inventa pasos. La guía desde un pedido de
-> venta ya está en finangher.com, pero este skill todavía no la recorrió:
-> está marcada como **no probada** (ver «Límites»).
+> venta con envío ya está en finangher.com y este skill la recorrió en un
+> entorno de prueba de Finangher (ver «Desde una venta con envío»).
 
 Este skill nace de un recorrido de noviembre de 2026. Una emprendedora trajo 18
 productos de tres facturas del mismo proveedor y tardó 35 minutos en hacer la
@@ -65,7 +65,7 @@ Decidir el motivo antes de tocar nada:
 |---|---|
 | **El dueño trae** mercadería que compró (la recoge o contrata el transporte) | **Remitente con motivo Compra.** El remitente y el destinatario son el mismo negocio; el proveedor sale de las facturas. Es el caso que cubre este skill |
 | **El proveedor la despacha** hasta el negocio | La guía la emite el proveedor, no el dueño. Decírselo y no emitir nada |
-| **El dueño vende** y despacha a su cliente | Guía de **venta**, desde el pedido (ver «Otro camino: desde una venta»). No usar la de compra |
+| **El dueño vende** y despacha a su cliente | Guía de **venta**, desde el pedido (ver «Desde una venta con envío»). No usar la de compra |
 | Devolución, traslado entre locales propios, consignación u otro motivo | Fuera de este skill. Decirlo y detenerse |
 
 ## Paso 1 · Ubicar las compras
@@ -164,14 +164,62 @@ envía nada a SUNAT.
 - La compra queda marcada con «Esta compra ya está en 1 guía». Si en otra guía
   viaja el resto, la hoja muestra lo que ya se envió.
 
-## Otro camino: desde una venta (no probada)
+## Desde una venta con envío (la forma más habitual)
 
-En finangher.com la guía de una venta vive en el pedido: en **Operaciones**, el
-pedido muestra el paso **«Guía de remisión»**, que se abre con **«Revisar
-datos»** y emite con **«Emitir guía»**. El transporte, la fecha y el peso se
-piden igual que en la compra. Este skill **no recorrió** ese camino: si el
-dueño lo pide, Claude lo dice, lo hace paso a paso leyendo la pantalla y se
-detiene ante cualquier duda.
+Cuando el negocio vende y despacha por agencia, la guía tiene motivo **Venta**
+y se hace **una por pedido**, dentro del pedido. Comprobado en un entorno de
+prueba de Finangher (nada se envió a SUNAT) con un envío por Shalom a una
+oficina de destino.
+
+**Dónde nace el envío (al vender).** En **«VENDER»**, el botón **«Enviar»**
+solo aparece después de elegir el cliente. Abre «Destino» (buscar el distrito)
+y luego **«Configurar envío»**: método (por ejemplo **Shalom**), **«Agencia
+Shalom»** (la oficina de destino), «Quién recibe» (el DNI completa el nombre) y
+«Teléfono». Se guarda con **«Guardar envío»**. Ese envío es lo que después
+alimenta la guía: si la agencia o el destino están mal, la guía sale mal.
+
+**Pasos para la guía:**
+
+1. Al registrar la venta aparece **«¡Venta Exitosa!»** con el botón
+   **«Operaciones»**, que abre el pedido. También se llega desde la pestaña
+   Operaciones.
+2. En **Cumplimiento**, el pedido está «Por empacar». **La guía va después de
+   empacar**: pulsar **«Marcar como empacado»** solo cuando el dueño confirme
+   que el paquete está armado (el peso es el del bulto listo).
+3. En **«Guía pendiente»**, pulsar **«Revisar datos»**. Se abre **«Datos del
+   traslado»** casi completa:
+   - salida: la dirección fiscal del negocio (preguntar si despacha desde otro
+     local);
+   - llegada: la dirección de la agencia elegida en el envío;
+   - «¿Quién lleva la mercadería?»: la empresa del envío (por ejemplo Shalom,
+     con su RUC);
+   - fecha de salida: hoy;
+   - destinatario: el cliente de la venta.
+4. **Lo único que falta es el peso** («Peso del envío en kilogramos», con el
+   embalaje). Preguntarlo al dueño; el botón final no se activa sin él.
+   Opcionales: registro MTC y «Orden de compra (opcional)».
+5. Resumen fijo y «sí» (como en el Paso 4, con motivo Venta, el cliente como
+   destinatario y la agencia como llegada). Después, **«Emitir guía»** una sola
+   vez (en un ambiente de prueba dice «Generar guía en PDF»).
+6. Aparece la tarjeta **«Guía de remisión»** con su número, «Imprimir» y
+   descargar. Entregar el PDF: la agencia y el transportista lo necesitan antes
+   de recibir el bulto.
+
+Otras salidas del mismo paso: **«Cargar»** (si la guía ya se emitió por fuera)
+y **«Continuar sin guía»**. Usarlas solo si el dueño lo dice.
+
+**Lo que sigue en el pedido.** Este skill solo lo describe; no lo ejecuta sin
+pedido expreso:
+
+- «Rótulo del paquete»: «Imprimir» o «Continuar sin rótulo».
+- «Entregar en agencia»: código de rastreo y contraseña de retiro, que da la
+  agencia al recibir el bulto.
+- «Avisar al destinatario»: mensaje por WhatsApp o «Marcar como avisado».
+- **Cobro**: «Registrar cobro» abre «Cobrar a <cliente>». Ahí se elige el
+  comprobante de la venta (Ninguno, Boleta o Factura).
+
+El comprobante (o el anticipo) es un documento fiscal aparte: **nunca se emite
+sin el «sí» del dueño**, y para emitirlo se usa [`registrar-venta`](../registrar-venta/).
 
 ## Cuando algo sale mal
 
@@ -193,7 +241,12 @@ detiene ante cualquier duda.
   una guía con motivo Compra, tres facturas del mismo proveedor, 18 productos
   en kilogramos, transporte público con empresa de transporte. Armarla tomó
   unos 18 toques.
-- **No probado:** la guía desde una venta; el transporte con vehículo propio
+- **Probado** en el mismo entorno de prueba: la guía de una venta con envío
+  por agencia (Shalom, recojo en oficina), dentro del pedido en Operaciones.
+  Una vez empacado, la guía se generó con un solo dato escrito (el peso).
+  No se ejecutaron el anticipo, el cobro, el comprobante final, la entrega en
+  agencia ni el aviso al cliente.
+- **No probado:** el transporte con vehículo propio
   (placa y conductor); otros motivos (devolución, traslado entre locales,
   consignación); compras sin factura electrónica; envíos parciales en varias
   guías.

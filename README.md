@@ -10,6 +10,7 @@ gratis: úsalas, cópialas y mejóralas.
 | [`registrar-venta`](registrar-venta/) | Le pides a Claude una boleta o factura y la arma en tu Finangher, te muestra el resumen, la emite con tu «sí» y le envía el PDF a tu cliente. |
 | [`integrar-compras`](integrar-compras/) | Claude trae a tu Finangher las facturas de compra que SUNAT ya conoce, ubica cada producto en tu catálogo, te muestra cómo va a quedar y registra con tu «sí». Tu stock se actualiza. |
 | [`activar-facturacion`](activar-facturacion/) | Claude te guía para activar la facturación electrónica en tu Finangher: primero pide contigo el certificado gratuito de SUNAT y, solo si SUNAT no te lo da, usa un PSE. Termina con tu primera boleta aceptada. Incluye un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf) para ti. |
+| [`emitir-guia`](emitir-guia/) | Le pides a Claude la guía de remisión de tus facturas de compra: junta las del mismo proveedor en una sola guía, te pregunta de dónde sale la carga, quién la lleva y cuánto pesa, y la emite con tu «sí». La guía desde la compra llega a Finangher con la próxima actualización. |
 
 ¿Qué necesidades del negocio ya cubren las skills y cuáles faltan? Ver el
 [mapa de necesidades](MAPA-DE-NECESIDADES.md).
@@ -250,6 +251,63 @@ cp -r skills-finangher/activar-facturacion ~/.claude/skills/
 - Con tu certificado, SUNAT te habilita desde el día siguiente; con el PSE,
   desde la fecha de inicio que elijas. Tu primera boleta puede salir recién ese
   día.
+
+## emitir-guia
+
+Cuando traes mercadería que le compraste a un proveedor, la carga viaja con su
+guía de remisión. Con esta skill Claude arma esa guía en tu Finangher desde tus
+compras: junta en una sola guía, con motivo Compra, las facturas del mismo
+proveedor que viajan juntas.
+
+- **Lo que Finangher ya sabe se llena solo:** proveedor, facturas, productos,
+  cantidades y la dirección de llegada.
+- **Te pregunta en un solo mensaje lo que solo tú sabes:** de dónde sale
+  realmente la mercadería, quién la lleva, el peso (si todo va en kilos te
+  propone la suma) y el día de salida.
+- **Solo emite con tu confirmación**, y pulsa «Emitir guía» una sola vez.
+- **No pide ni escribe contraseñas.** Tú inicias sesión; Claude opera tu sesión.
+- Te entrega el PDF y te recuerda que el transportista lo necesita antes de
+  salir.
+
+### Qué necesitas
+
+- Una cuenta en [Finangher](https://finangher.com) con la guía de remisión
+  configurada y tus compras registradas con su factura (puedes traerlas con
+  [`integrar-compras`](integrar-compras/)).
+- Un Claude que pueda operar tu navegador con tu sesión iniciada.
+
+### Instalar
+
+> Instala la skill emitir-guia de https://github.com/lucasBecrod/skills-finangher
+
+A mano:
+
+```bash
+git clone https://github.com/lucasBecrod/skills-finangher.git
+mkdir -p ~/.claude/skills
+cp -r skills-finangher/emitir-guia ~/.claude/skills/
+```
+
+No tiene dependencias que instalar: son instrucciones para Claude.
+
+### Usar
+
+> Haz la guía de mis tres facturas de alimento, las trae un transportista mañana
+
+### Límites que debes conocer
+
+- **La guía desde la compra («Trasladar mercadería») llega a finangher.com con
+  la próxima actualización.** Mientras tanto, si Claude no ve el botón, te
+  avisa y no inventa pasos.
+- Probada en un ambiente de prueba: una guía con motivo Compra, tres facturas
+  del mismo proveedor, 18 productos en kilos y empresa de transporte. Todavía
+  no está probada la guía desde una venta, el transporte con vehículo propio
+  ni otros motivos (devoluciones, traslados entre tus locales).
+- Facturas de proveedores distintos van en guías distintas.
+- Con empresa de transporte, Finangher pide su RUC y el registro MTC; no pide
+  placa ni conductor.
+- Una guía emitida no se edita: se corrige con otra guía. Por eso la skill
+  pregunta antes de emitir.
 
 ## Licencia
 

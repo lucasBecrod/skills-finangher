@@ -11,6 +11,7 @@ gratis: úsalas, cópialas y mejóralas.
 | [`integrar-compras`](integrar-compras/) | Claude trae a tu Finangher las facturas de compra que SUNAT ya conoce, ubica cada producto en tu catálogo, te muestra cómo va a quedar y registra con tu «sí». Tu stock se actualiza. |
 | [`activar-facturacion`](activar-facturacion/) | Claude te guía para activar la facturación electrónica en tu Finangher: primero pide contigo el certificado gratuito de SUNAT y, solo si SUNAT no te lo da, usa un PSE. Termina con tu primera boleta aceptada. Incluye un [manual en PDF](activar-facturacion/manual/manual-activar-facturacion.pdf) para ti. |
 | [`emitir-guia`](emitir-guia/) | Le pides a Claude la guía de remisión de tus facturas de compra: junta las del mismo proveedor en una sola guía, te pregunta de dónde sale la carga, quién la lleva y cuánto pesa, y la emite con tu «sí». La guía desde la compra llega a Finangher con la próxima actualización. |
+| [`despachar-pedido`](despachar-pedido/) | Claude en el grupo de WhatsApp de tu equipo: después de la venta (que hace `registrar-venta`, también desde una proforma y con anticipo), cada uno le escribe «@Claude» y él emite la guía y el rótulo, guarda el envío de Shalom, te avisa cuando llegó y emite la factura final que descuenta el anticipo. Te muestra cada documento como mensaje y lo emite con tu «sí». |
 
 ¿Qué necesidades del negocio ya cubren las skills y cuáles faltan? Ver el
 [mapa de necesidades](MAPA-DE-NECESIDADES.md).

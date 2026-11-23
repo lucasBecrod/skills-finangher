@@ -4,7 +4,9 @@ description: >
   Registrar una venta en Finangher y emitir su boleta o factura electrónica,
   operando la web con la sesión del dueño. Usar cuando pidan "emite una boleta",
   "factúrale a este RUC", "registra esta venta", "véndele X a Y", "cóbrale por
-  Yape y dale su boleta". Revisa que el pedido esté completo, arma la venta,
+  Yape y dale su boleta", "pasa esta proforma a venta", "emite el anticipo".
+  También vende desde una proforma, con anticipo o con envío por agencia; el
+  despacho sigue con despachar-pedido. Revisa que el pedido esté completo, arma la venta,
   muestra un resumen fijo y solo emite con el «sí» del dueño. No emite notas de
   crédito ni anula comprobantes.
 ---
@@ -223,6 +225,14 @@ Reglas del envío:
   chat antes de reintentar: un segundo clic manda el mensaje dos veces.
 - Antes de enviar, comprobar que el chat abierto es el del número aprobado.
 
+## Venta desde una proforma, con anticipo o con envío
+
+Si el pedido viene de una proforma, paga una parte ahora y el resto después, o
+va por agencia, seguir [references/proforma-anticipo-envio.md](references/proforma-anticipo-envio.md).
+El anticipo es un comprobante real y se confirma con su propio molde. Después
+de vender, el pedido (empacar, guía, rótulo, agencia, cobro del saldo y
+comprobante final) sigue con [`despachar-pedido`](../despachar-pedido/).
+
 ## Cuando algo sale mal
 
 | Situación | Qué hacer |
@@ -246,6 +256,7 @@ que corrijan el sistema. Formato y reglas en
 ## Lo que este skill no hace
 
 - Notas de crédito, anulaciones ni cambios a un comprobante ya emitido.
+- Despachar el pedido después de vender: eso es `despachar-pedido`.
 - Configurar el negocio en Finangher (certificado, series, régimen, cuentas de
   cobro): eso se hace una vez en «Configuración». Si falta algo para vender,
   decir qué falta y dónde se configura.

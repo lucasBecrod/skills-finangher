@@ -11,7 +11,7 @@ Estados: **Lista** (publicada en este repositorio) · **En preparación** ·
 |---|---|---|---|---|---|
 | 1 | Activar mis boletas y facturas | Emitir comprobantes electrónicos aceptados por SUNAT | Configuración › Facturación | [`activar-facturacion`](activar-facturacion/) | Lista |
 | 2 | Vender rápido y que salga el comprobante | Con el DNI o el RUC aparece el nombre; cobras, das vuelto, imprimes o envías por WhatsApp | Operaciones | [`registrar-venta`](registrar-venta/) | Lista |
-| 3 | Despachar un pedido | Proforma, venta, empacado, guía de remisión, rótulo, agencia, cobro del saldo y comprobante | Operaciones, Movimientos › Compras | [`emitir-guia`](emitir-guia/) (guía de remisión) | Lista: la guía desde la compra llega a Finangher con la próxima actualización; la guía desde la venta, sin probar todavía |
+| 3 | Despachar un pedido | Proforma, venta, empacado, guía de remisión, rótulo, agencia, cobro del saldo y comprobante | Operaciones | [`registrar-venta`](registrar-venta/) (venta, proforma y anticipo) y después [`despachar-pedido`](despachar-pedido/), con [`emitir-guia`](emitir-guia/) y [`rastrear-envio`](rastrear-envio/) | Lista: probada en un entorno de prueba de Finangher con envío por Shalom |
 | 4 | Saber dónde está mi envío | El estado del paquete en la agencia sin llamar | — | [`rastrear-envio`](rastrear-envio/) | Lista |
 | 5 | Cargar mis productos | Tu catálogo completo, con variantes y precios, listo para vender | Mi catálogo | `cargar-catalogo` | En preparación |
 | 6 | Saber cuánto stock me queda | Stock por sucursal y total, kardex descargable, traslados entre almacenes | Inventario | — | Falta |

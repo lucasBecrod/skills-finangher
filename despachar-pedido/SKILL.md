@@ -73,6 +73,9 @@ al dueño **una vez** y anotarlo:
   («Claude»), invitado desde Equipo con permisos de facturación y guías,
   transacciones, deudas por cobrar y stock. No usar la cuenta del dueño.
 
+Si `negocio.md` es de otro negocio (el nombre no coincide con el de la sesión
+de Finangher), no usarlo: preguntar y anotar el correcto.
+
 Lo demás (nombre del negocio, IGV, series, cuentas, agencias) se lee de
 Finangher. Formato de `negocio.md`: el de
 [`registrar-venta`](../registrar-venta/references/entrevista-negocio.md).
@@ -85,9 +88,11 @@ Finangher. Formato de `negocio.md`: el de
   cliente o código; si hay varios abiertos del mismo cliente, preguntar cuál.
 - **¿Tiene envío?** Si la venta se registró con envío, el pedido ya trae
   destino, agencia y quién recibe, y muestra el bloque **Cumplimiento** «Por
-  empacar». Si no, agregarlo desde el pedido: **«Enviar»** → **«Configurar
-  envío»** → **«Guardar envío»**. Queda «Envío agregado» y el pedido vuelve a
-  En proceso. Los datos del envío (agencia de destino, quién recibe, DNI y
+  empacar». Si se vendió sin envío, el pedido figura **«Entregado»** (venta de
+  mostrador). Para despacharlo: en Cumplimiento, **«Alistar pedido»** →
+  **«Enviar a otro lugar»** → «Destino» → **«Configurar envío»** → **«Guardar
+  envío»**. Aparece «Pedido en alistamiento» y el pedido vuelve a «Por
+  empacar». Los datos del envío (agencia de destino, quién recibe, DNI y
   teléfono) se piden en un solo mensaje si nadie los dio.
 
 ## El pedido, tramo por tramo
@@ -121,7 +126,10 @@ Se empieza desde donde está el pedido en Finangher; no se rehace lo hecho.
    Las reglas de la guía son las de [`emitir-guia`](../emitir-guia/).
 4. **Rótulo.** «Imprimir» abre la impresión del navegador. Si la computadora
    donde trabaja Claude tiene la impresora, imprimir; si no, enviar el PDF del
-   rótulo al chat para que lo imprima quien empaca. Decir cuál de las dos pasó.
+   rótulo al chat («Descargar rótulo PDF») para que lo imprima quien empaca.
+   Decir cuál de las dos pasó. **Descargar el PDF no hace avanzar el pedido:**
+   pulsar también «Imprimir» del rótulo (aunque se cierre el diálogo) para que
+   quede «Rótulo preparado»; sin eso no se pasa a «Entregar en agencia».
 
 ### Tramo 2 · Guardar el envío
 
@@ -148,6 +156,8 @@ llegar a ese destino) y decirla en el chat. A esa hora, consultar el estado con
   ([mensajes.md](references/mensajes.md#llegó)) y dejar de revisar.
 - **Todavía en camino** → un solo recordatorio más al día siguiente a la misma
   hora. Si al tercer día sigue igual, avisar a quien vende y dejar de revisar.
+- **Orden no encontrada** → pedir a quien llevó el paquete que revise la orden
+  y la clave del ticket; corregirlas en el pedido si estaban mal.
 - **El rastreo no responde** → decirlo; no inventar el estado.
 
 El recordatorio necesita que el lugar donde vive Claude pueda programar una
@@ -159,10 +169,14 @@ equipo). Si no puede, decirlo al guardar el envío y pedir que se lo recuerden.
 1. **Leer el pago** del comprobante que mandaron: monto, fecha y a quién se
    pagó. El monto debe ser el saldo que muestra el pedido; si no lo es, o no se
    lee, preguntar (puede ser un pago parcial). Nunca registrar un pago que no
-   se pudo leer.
+   se pudo leer. Finangher muestra la cuenta de cobro enmascarada (por ejemplo
+   «Yape ****1VOI»), sin el número: comparar el titular de la captura con el
+   negocio y, si no se puede, decirlo en ⚠️ Observaciones.
 2. Abrir el cobro del pedido: monto, medio y comprobante. Con anticipo, la
    factura (o boleta) final **descuenta el anticipo sola**; revisar que el
-   anticipo descontado sea el del pedido.
+   anticipo descontado sea el del pedido. La hoja de cobro no muestra los
+   productos ni el IGV: copiarlos del pedido para el molde. El IGV del
+   comprobante final es el del saldo (saldo ÷ 1,18 da la base).
 3. **Confirmar con el molde** del comprobante final
    ([mensajes.md](references/mensajes.md#comprobante-final)).
 4. Con el «sí»: cobrar **una sola vez**. Enviar el PDF ya emitido.
@@ -191,6 +205,7 @@ Leer el pedido en Operaciones y responder en una línea con el molde de estado
 | Situación | Qué hacer |
 |---|---|
 | La pantalla no confirma una emisión | **No volver a pulsar.** Revisar el pedido en Operaciones: si el documento está, ya se emitió |
+| «Confirmar entrega en agencia» no cambia nada (pasó después de agregar el envío en la misma pantalla) | Recargar la página, volver a abrir el pedido y confirmar una vez |
 | El pago no coincide con el saldo o no se lee | Preguntar. No registrar |
 | El pedido no aparece en Operaciones | Preguntar si la venta se registró; si no, es trabajo de `registrar-venta` |
 | La foto del ticket no se lee | Pedir otra foto o que escriban los dos datos |
@@ -207,12 +222,13 @@ Finangher solo con permiso del dueño.
 ## Límites
 
 - **Probado** en un entorno de prueba de Finangher (nada se envió a SUNAT en
-  producción), en dos recorridos completos con envío por Shalom: guía, rótulo,
-  entrega en agencia, aviso, cobro del saldo y factura final que descuenta el
-  anticipo. Los operó un agente siguiendo la pantalla; falta un recorrido
-  guiado solo por esta skill dentro de un grupo de WhatsApp real.
-- **No probado:** agregar el envío después de vender, boleta en lugar de
-  factura, envío a domicilio, otras agencias, envíos parciales, pago final en
+  producción), en tres recorridos completos con envío por Shalom: guía,
+  rótulo, entrega en agencia, aviso, cobro del saldo y factura final que
+  descuenta el anticipo. El tercero lo hizo un agente guiado solo por esta
+  skill, con los mensajes del equipo simulados, e incluyó agregar el envío
+  desde un pedido vendido sin envío. Falta probarlo dentro de un grupo de
+  WhatsApp real y con un rastreo real.
+- **No probado:** boleta en lugar de factura, envío a domicilio, otras agencias, envíos parciales, pago final en
   efectivo, varios pedidos en paralelo para el mismo cliente.
 - El recordatorio depende de que el entorno de Claude pueda programar tareas.
 - No anula ni corrige comprobantes ni guías, no da de baja guías en SUNAT, no

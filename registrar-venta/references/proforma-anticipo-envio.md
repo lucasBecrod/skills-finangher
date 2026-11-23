@@ -6,7 +6,8 @@ de vender, el pedido sigue con [`despachar-pedido`](../../despachar-pedido/).
 
 ## Desde una proforma
 
-1. **Operaciones** → abrir la proforma del cliente. Revisar «Válida hasta»
+1. **Operaciones** → pestaña **Todos** (o «Por Atender» › filtro
+   «Proformas»; no está en «En Curso») → la proforma del cliente. Revisar «Válida hasta»
    dentro de la proforma (la lista puede decir «vence Ahora» aunque la fecha
    sea otra). Si venció, decirlo y preguntar si se vende igual.
 2. Tocar **«Venta»**: el carrito se arma con los productos y el cliente de la
@@ -24,8 +25,12 @@ Si el pedido dice adónde va, configurarlo al vender:
    completar el nombre; si no lo encuentra, escribirlo) y «Teléfono».
 2. **«Guardar envío».** El chip muestra «Shalom (<distrito>) → <nombre>».
 
-Si el pedido no lo dice, no inventarlo: el envío se puede agregar después
-desde Operaciones (ver `despachar-pedido`).
+Si el pedido no lo dice, no inventarlo. Al vender sin envío, Finangher
+pregunta «¿Desea continuar sin envío o agendamiento? La operación se
+registrará como entrega inmediata en mostrador». Si el pedido va por agencia
+y faltan sus datos, **Aceptar** y agregar el envío después desde el pedido
+(«Alistar pedido» → «Enviar a otro lugar», en `despachar-pedido`). Si nadie
+dijo si va por agencia, preguntar antes de aceptar.
 
 ## Con anticipo (una parte ahora, el resto después)
 
@@ -39,7 +44,11 @@ confirma con el «sí» como cualquier comprobante.
 2. **«Dividir monto»**: el monto del anticipo con su medio.
 3. **«Permitir fiado»** para el saldo («S/ x se registrará como deuda»).
 4. Activar **«Emitir Factura por anticipo»** («Factura de S/ x ahora»; con
-   boleta, lo mismo).
+   boleta, lo mismo). La pantalla no muestra la base ni el IGV del anticipo:
+   para el molde, base = anticipo ÷ 1,18 e IGV = anticipo − base; comprobarlos
+   en el PDF emitido. La cuenta de cobro aparece enmascarada («Yape ****XXXX»):
+   comparar el titular de la captura con el negocio y, si no se puede, decirlo
+   en ⚠️ Observaciones.
 5. Confirmar con el molde de anticipo (abajo). Con el «sí», el botón dice
    **«A crédito S/ <saldo>»**: pulsarlo una vez.
 6. **Desde una proforma no aparece «¡Venta Exitosa!»:** Finangher abre directo

@@ -26,7 +26,7 @@ valen aquí. El molde del anticipo (al vender) está en
 **Sale de:** <dirección de partida, distrito>
 **Llega a:** <agencia> <oficina de destino>
 **Lleva:** <agencia> (transporte público)
-**Carga:** <n> bultos · <peso> kg · <n> productos
+**Carga:** <peso> kg · <n> productos
 **Fecha de salida:** <hoy, dd/mm/aaaa>
 
 ¿Emito la guía? Responde **sí** o dime el cambio.
@@ -65,16 +65,20 @@ revisarlo; avísame si quieres que vuelva a mirar.»
 | Producto | Cant. | Precio | Importe |
 |:---|---:|---:|---:|
 | <producto> | <cant.> | <precio> | <importe> |
-| **Impuestos** (IGV 18 %) | | | <igv> |
 | **Total del pedido** | | | <total> |
 | **Anticipo** (<serie-número>) | | | −<anticipo> |
 | **A pagar** | | | **S/ <saldo>** |
+| **Impuestos** (IGV 18 %, del saldo) | | | <igv del saldo> |
 
 **Pago:** S/ <saldo> por <medio>
 **Entrega:** te pregunto al emitir
 
 ¿Emito? Responde **sí** o dime el cambio.
 ```
+
+Los productos y el total se copian del pedido (la hoja de cobro no los
+muestra). El IGV es el del saldo, que es el que trae el comprobante: base =
+saldo ÷ 1,18; IGV = saldo − base.
 
 Después de emitir: «Factura <serie-número> emitida, descuenta el anticipo
 <serie-número>. Pedido <código> cobrado. Aquí el PDF. Recuerda pasarle al
@@ -85,5 +89,5 @@ cliente la orden y la clave de retiro.»
 Una línea, en el orden del pedido:
 
 ```
-Pedido <código> de <cliente>: <Por empacar | Por despachar | En agencia desde <fecha> | Entregado> · cobro <pendiente S/ x | parcial, saldo S/ x | completo> · <comprobantes emitidos>.
+Pedido <código> de <cliente>: <Por empacar | Por despachar | En tránsito, en agencia desde <fecha> | Entregado> · cobro <pendiente S/ x | parcial, saldo S/ x | completo> · <comprobantes emitidos>.
 ```
